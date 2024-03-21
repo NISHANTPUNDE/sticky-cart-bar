@@ -5,11 +5,11 @@
   "license": "UNLICENSED",
   "scripts": {
     "shopify": "shopify",
-    "build": "shopify app build -- --graphiql-port=3458",
+    "build": "shopify app build",
     "dev": "shopify app dev -- --graphiql-port=3458",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "deploy": "shopify app deploy"
+    "deploy": "shopify app deploy -- --graphiql-port=3458"
   },
   "dependencies": {
     "@shopify/app": "3.57.1",
