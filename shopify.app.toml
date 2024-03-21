@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "a08ea8f60487001c5975af2c84073f3c"
+client_id = "71ad53ed84e45184e99595d517158444"
 name = "Sticky-Cart-Bar"
-handle = "sticky-cart-bar"
-application_url = "https://says-ripe-oc-planned.trycloudflare.com"
+handle = "sticky-cart-bar-1"
+application_url = "https://crawford-consult-carlos-rentals.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "storeapp-dev.myshopify.com"
+dev_store_url = "themedemo201.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://says-ripe-oc-planned.trycloudflare.com/auth/callback",
-  "https://says-ripe-oc-planned.trycloudflare.com/auth/shopify/callback",
-  "https://says-ripe-oc-planned.trycloudflare.com/api/auth/callback"
+  "https://crawford-consult-carlos-rentals.trycloudflare.com/auth/callback",
+  "https://crawford-consult-carlos-rentals.trycloudflare.com/auth/shopify/callback",
+  "https://crawford-consult-carlos-rentals.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
