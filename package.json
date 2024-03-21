@@ -6,10 +6,10 @@
   "scripts": {
     "shopify": "shopify",
     "build": "shopify app build",
-    "dev": "shopify app dev -- --graphiql-port=3458",
+    "dev": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "deploy": "shopify app deploy -- --graphiql-port=3458"
+    "deploy": "shopify app deploy"
   },
   "dependencies": {
     "@shopify/app": "3.57.1",
