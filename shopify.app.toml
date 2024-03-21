@@ -3,7 +3,7 @@
 client_id = "71ad53ed84e45184e99595d517158444"
 name = "Sticky-Cart-Bar"
 handle = "sticky-cart-bar-1"
-application_url = "https://crawford-consult-carlos-rentals.trycloudflare.com"
+application_url = "https://promised-pontiac-patrol-confirmed.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://crawford-consult-carlos-rentals.trycloudflare.com/auth/callback",
-  "https://crawford-consult-carlos-rentals.trycloudflare.com/auth/shopify/callback",
-  "https://crawford-consult-carlos-rentals.trycloudflare.com/api/auth/callback"
+  "https://promised-pontiac-patrol-confirmed.trycloudflare.com/auth/callback",
+  "https://promised-pontiac-patrol-confirmed.trycloudflare.com/auth/shopify/callback",
+  "https://promised-pontiac-patrol-confirmed.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
