@@ -1,5 +1,5 @@
 // Desc: This file is used to set the color of the product purchase bar. The user can select the background color and text color of the product purchase bar. The selected color will be displayed in the product purchase bar
-import { Page, Layout, Card ,Text} from "@shopify/polaris";
+import { Page, Layout, Card, Text } from "@shopify/polaris";
 import { useState, useEffect } from "react";
 import { useAuthenticatedFetch } from "../hooks";
 import axios from "axios";
@@ -11,7 +11,7 @@ export default function Color() {
 
   const [shopid, setShopid] = useState();
   const [value, setValue] = useState();
-  const [textvalue,setTextvalue] =useState()
+  const [textvalue, setTextvalue] = useState();
   const shopFetch = async () => {
     let req = await fetch("/api/shop");
     let res = await req.json();
@@ -23,10 +23,10 @@ export default function Color() {
         `https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/color/${shopid}`
       )
       .then((res) => {
-        setValue(res.data.data[0]?.bgColor)
-        setTextvalue(res.data.data[0]?.textColor)
-        setbackgroundColor(res.data.data[0]?.bgColor)
-        setColor(res.data.data[0]?.textColor)
+        setValue(res.data.data[0]?.bgColor);
+        setTextvalue(res.data.data[0]?.textColor);
+        setbackgroundColor(res.data.data[0]?.bgColor);
+        setColor(res.data.data[0]?.textColor);
       })
       .catch((err) => console.log(err));
   };
@@ -44,7 +44,7 @@ export default function Color() {
         {
           shopid: shopid,
           bgColor: backgroundColor,
-          textColor: Color
+          textColor: Color,
         }
       )
       .then((res) => {
@@ -56,7 +56,7 @@ export default function Color() {
         console.log(err);
       });
   };
-  
+
   return (
     <div>
       <Page fullWidth>
@@ -64,7 +64,9 @@ export default function Color() {
           <Layout.Section>
             <Card sectioned>
               <div className="flex">
-              <Text variant="heading2xl" as="h3">Color</Text>
+                <Text variant="heading2xl" as="h3">
+                  Color
+                </Text>
               </div>
             </Card>
           </Layout.Section>
@@ -86,22 +88,21 @@ export default function Color() {
                     value={Color ? Color : textvalue}
                     onChange={(e) => setColor(e.target.value)}
                   />
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      className="submit-btn color-btn"
-                      onClick={handlebgColor}
-                    >
-                      Set colors
-                    </button>
-                    
-                  </div>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="submit-btn color-btn"
+                    onClick={handlebgColor}
+                  >
+                    Set colors
+                  </button>
+                </div>
               </div>
-              </Card>
+            </Card>
           </Layout.Section>
           <Layout.Section>
-            <Card >
+            <Card>
               <div className="container">
                 <div className="color-section">
                   <img
@@ -118,7 +119,7 @@ export default function Color() {
                   </div>
                 </div>
                 <div className="footer">
-                  <div
+                  {/* <div
                     id="bar"
                     style={{
                       backgroundColor: `${
@@ -159,10 +160,55 @@ export default function Color() {
                         Add to cart
                       </button>
                     </div>
-                  </div>
+                  </div> */}
+                  <section class="add-cart-section" id="add-cart-id">
+                    <div class="container-fluid ">
+                      <div class="box" style={{backgroundColor: `${
+                        backgroundColor ? backgroundColor : value
+                      }`,
+                      color: `${Color ? Color : textvalue}`,}}>
+                        <img
+                          src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
+                          class="earring-img"
+                        />
+                        <h3
+                        style={{ color: `${Color ? Color : textvalue}`}}
+                        >
+                          Martini Stud Earrings 1.65 <br />
+                          CT. TW.
+                        </h3>
+                        <label
+                          for="my-dropdown"
+                          data-toggle="dropdown"
+                          class="label1"
+                          style={{ color: `${Color ? Color : textvalue}`}}
+                        >
+                          3
+                        </label>
+                        <label
+                          for="my-dropdown"
+                          data-toggle="dropdown"
+                          class="label2"
+                          style={{ color: `${Color ? Color : textvalue}`}}
+                        >
+                          Silver
+                        </label>
+                        <label
+                          for="my-dropdown"
+                          data-toggle="dropdown"
+                          class="label3"
+                          style={{ color: `${Color ? Color : textvalue}`}}
+                        >
+                          M
+                        </label>
+                        <h4 style={{ color: `${Color ? Color : textvalue}`}}>$200</h4>
+                        <button style={{ color: `${Color ? Color : textvalue}`}}>Add To Cart</button>
+                      </div>
+                    </div>
+                  </section>
                 </div>
               </div>
-              </Card>
+            </Card>
           </Layout.Section>
         </Layout>
       </Page>

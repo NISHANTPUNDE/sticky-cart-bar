@@ -1,9 +1,9 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "a08ea8f60487001c5975af2c84073f3c"
-name = "Sticky-Cart-Bar"
-handle = "sticky-cart-bar"
-application_url = "https://hoped-north-toolkit-maritime.trycloudflare.com"
+client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
+name = "Sticky_cart_bar"
+handle = "sticky_cart_bar"
+application_url = "https://mf-cursor-bosnia-gossip.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://hoped-north-toolkit-maritime.trycloudflare.com/auth/callback",
-  "https://hoped-north-toolkit-maritime.trycloudflare.com/auth/shopify/callback",
-  "https://hoped-north-toolkit-maritime.trycloudflare.com/api/auth/callback"
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/auth/callback",
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/auth/shopify/callback",
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
