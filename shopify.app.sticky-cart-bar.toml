@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
-name = "Sticky_Cart_Bar"
-handle = "sticky_cart_bar-1"
-application_url = "https://icon-diet-dense-hello.trycloudflare.com"
+client_id = "0eb02150abd00e3f71ffbe68ed1c35fe"
+name = "Sticky-Cart-Bar"
+handle = "sticky-cart-bar-2"
+application_url = "https://broadcast-mens-filename-detection.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "themedemo1004.myshopify.com"
+dev_store_url = "sticky-cart-bar.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://icon-diet-dense-hello.trycloudflare.com/auth/callback",
-  "https://icon-diet-dense-hello.trycloudflare.com/auth/shopify/callback",
-  "https://icon-diet-dense-hello.trycloudflare.com/api/auth/callback"
+  "https://broadcast-mens-filename-detection.trycloudflare.com/auth/callback",
+  "https://broadcast-mens-filename-detection.trycloudflare.com/auth/shopify/callback",
+  "https://broadcast-mens-filename-detection.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
