@@ -3,7 +3,7 @@
 client_id = "0eb02150abd00e3f71ffbe68ed1c35fe"
 name = "Sticky-Cart-Bar"
 handle = "sticky-cart-bar-2"
-application_url = "https://broadcast-mens-filename-detection.trycloudflare.com"
+application_url = "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://broadcast-mens-filename-detection.trycloudflare.com/auth/callback",
-  "https://broadcast-mens-filename-detection.trycloudflare.com/auth/shopify/callback",
-  "https://broadcast-mens-filename-detection.trycloudflare.com/api/auth/callback"
+  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/auth/callback",
+  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/auth/shopify/callback",
+  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/api/auth/callback"
 ]
 
 [webhooks]
