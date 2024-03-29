@@ -1,15 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "0eb02150abd00e3f71ffbe68ed1c35fe"
-name = "Sticky-Cart-Bar"
-handle = "sticky-cart-bar-2"
-application_url = "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app"
+client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
+name = "Sticky_cart_bar"
+handle = "sticky_cart_bar"
+application_url = "https://properly-anticipated-postings-experience.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "sticky-cart-bar.myshopify.com"
-include_config_on_deploy = true
+dev_store_url = "storeapp-dev.myshopify.com"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -17,9 +16,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/auth/callback",
-  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/auth/shopify/callback",
-  "https://8021-2401-4900-1c43-a90b-e4b1-b6e5-b624-c79f.ngrok-free.app/api/auth/callback"
+  "https://properly-anticipated-postings-experience.trycloudflare.com/auth/callback",
+  "https://properly-anticipated-postings-experience.trycloudflare.com/auth/shopify/callback",
+  "https://properly-anticipated-postings-experience.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

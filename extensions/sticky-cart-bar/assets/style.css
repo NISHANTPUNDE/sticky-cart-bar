@@ -1,106 +1,661 @@
-#bar{
-    height: 80px !important;
+
+#pnotibarbtn {
+    /* margin-left: -119px; */
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    /* display: none; */
+    visibility: hidden;
+    width: 100%;
+    /*height: 70px;*/
+    background: #444444;
+    opacity: 0;
+    -webkit-transition: visibility .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        opacity .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        -webkit-transform .6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    -moz-transition: visibility .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        opacity .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        -moz-transform .6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    transition: visibility .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        opacity .6s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        transform .6s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+#pnotibarbtn:hover {
+    background-position: 50% -62px
+}
+
+#pnotibarbtn.showpnotibar {
+    visibility: visible;
+    opacity: 1
+}
+
+#pnotibarbtn.pnotibarbtn {
+    background-position: 50% -62px;
+    opacity: 0;
+    -webkit-transform: translateY(-800px);
+    -moz-transform: translateY(-800px);
+    -ms-transform: translateY(-800px);
+    transform: translateY(-800px);
+    pointer-events: none
+}
+
+#pnotibarbtn img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+#pnotibarbtn .column {
+    float: left;
+    /*padding: 5px;*/
+}
+
+#pnotibarbtn a {
+    background: #ED3034;
+    padding: 10px 70px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: arial;
+}
+
+#pnotibarbtn .column.btn {
+    margin-top: 12px;
+    margin-left: 28px;
+    margin-bottom: 12px;
+}
+
+#pnotibarbtn .column.text2 {
+    margin-top: 22px;
+    margin-left: 35px;
+}
+
+#pnotibarbtn .column.text2 h4 {
+    color: #FBA00B;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 21px;
+}
+
+#pnotibarbtn .column.text1 h4 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: arial;
+
+}
+
+#pnotibarbtn .column.text1 {
+    margin-top: 19px;
+    margin-left: 18em;
+}
+
+#pnotibarbtn .column.img {
+    margin-left: 0;
+    position: absolute;
+    top: -13px;
+    z-index: 99;
+}
+
+/*@media (min-width: 320px) and (max-width: 768px)  {
+#pnotibarbtn {
+display: none !important;
+}
+}
+*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    height: 80%;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.product-card select {
+    margin: 0 10px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    width: 6%;
+    padding: 7px;
+    font-size: 18px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.product-card select option {
+    color: #000;
+}
+
+select.sel1 {
+    width: 4%;
+    position: relative;
+    top: 5px;
+    margin-right: 80px;
+}
+
+select.sel2 {
+    width: 8%;
+    position: relative;
+    top: 5px;
+}
+
+select.sel3 {
+    width: 5%;
+    position: relative;
+    top: 5px;
+}
+
+.product-card {
+    background: #3F51B5;
+    border: 1px solid #3F51B5;
+    max-width: 100%;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    margin-left: -67px;
-    z-index: 999;
-    bottom:0;
-    padding: 10px;
-    left:0;
-    height: 140px;
-    background-color: navajowhite;
+    margin-left: -210px!important;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    margin: 2px;
+    width: 56%;
+    color: #fff;
+    display: flex;
+}
+
+.product-info h3 {
+    color: #fff;
+    margin: 8px 0 0 10px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.product-info img {
+    border-radius: 5px;
+}
+
+.product-price {
+    color: #e44d26;
+    font-weight: bold;
+    background: #fff;
+    width: 5%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-style: italic;
+    font-size: 20px;
+    margin: 0 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.add-to-cart-btn {
+    background: #151414;
     color: white;
+    border-radius: 13px;
+    padding: 10px 20px;
+    line-height: 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    height: 40px;
+    position: relative;
+    width: 10%;
+    top: 5px;
+    display: block;
+    text-align: center;
+}
+
+/* Responsive styles 
+@media (min-width: 786px) {
+.product-card {
+max-width: 100%;
+display:flex;
+width: 100%;
+}
+}
+*/
+
+@media only screen and (min-width: 401px) and (max-width: 599px) {
+    .product-card {
+        display: inherit !important;
+        margin-left: -15px!important;
+    }
+
+    #pnotibarbtn img {
+        width: 65px;
+        height: 55px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+        display: none;
+    }
+
+    .product-info {
+        width: 18%;
+        float: left;
+    }
+
+    .product-card select {
+        margin: 0 10px;
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        width: 6%;
+        padding: 7px;
+        font-size: 12px;
+        height: 36px;
+        border-radius: inherit;
+    }
+
+    select.sel1 {
+        width: 13%;
+        position: relative;
+        top: 5px;
+        margin-right: 0;
+    }
+
+    select.sel2 {
+        width: 19%;
+        position: relative;
+        top: 5px;
+    }
+
+    select.sel3 {
+        width: 13%;
+        position: relative;
+        top: 5px;
+    }
+
+    .product-card select {
+        margin: 0;
+    }
+
+    .product-price {
+        width: 5%;
+        height: 50px;
+        line-height: 50px;
+        padding: 8px;
+        margin: 0 12px;
+    }
+
+    .product-price {
+        font-size: 17px;
+        top: 5px;
+        border-radius: inherit;
+    }
+
+    .add-to-cart-btn {
+        padding: 5px;
+        line-height: 10px;
+        font-size: 16px;
+        height: 40px;
+        top: 5px;
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin: 0;
+        border-radius: 1px;
+    }
+
+}
+@media only screen and (min-width: 750px) and (max-width: 767px) {
+    .product-card {
+        display: inherit !important;
+        margin-left: -51px!important;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1496px) {
+    .product-card {
+        /* display: inherit !important; */
+        margin-left: -200px!important;
+     
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 750px) {
+    .product-card {
+        display: inherit !important;
+        margin-left: -15px!important;
+    }
+
+    #pnotibarbtn img {
+        width: 65px;
+        height: 55px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+        display: none;
+    }
+
+    .product-info {
+        width: 18%;
+        float: left;
+    }
+
+    .product-card select {
+        margin: 0 10px;
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        width: 6%;
+        padding: 7px;
+        font-size: 12px;
+        height: 36px;
+        border-radius: 5px;
+    }
+
+    select.sel1 {
+        width: 12%;
+        position: relative;
+        top: 5px;
+        margin-right: 0;
+    }
+
+    select.sel2 {
+        width: 18%;
+        position: relative;
+        top: 5px;
+    }
+
+    select.sel3 {
+        width: 12%;
+        position: relative;
+        top: 5px;
+    }
+
+    .product-card select {
+        margin: 0;
+    }
+
+    .product-price {
+        width: 5%;
+        height: 50px;
+        line-height: 50px;
+        padding: 12px;
+        margin: 0 5px;
+    }
+
+    .product-price {
+        font-size: 12px;
+        top: 5px;
+    }
+
+    .add-to-cart-btn {
+        padding: 5px;
+        line-height: 10px;
+        font-size: 11px;
+        height: 40px;
+        top: 5px;
+        text-align: center;
+        width: 18%;
+        display: inline-block;
+        margin: 0;
+    }
+
+}
+
+/* @media (max-width: 786px) {
+    .product-card {
+        display: flex;
+        margin-left: -15px;
+    }
+
+} */
+
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+    .product-card {
+        display: inherit !important;
+        margin-left: -15px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+        display: none;
+    }
+
+    .product-info {
+        width: 20%;
+        float: left;
+    }
+
+    #pnotibarbtn img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .product-card select {
+        margin: 0 10px;
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        width: 6%;
+        padding: 7px;
+        font-size: 12px;
+        height: 36px;
+        border-radius: inherit;
+    }
+
+    select.sel1 {
+        width: 15%;
+        position: relative;
+        top: 5px;
+        margin-right: 0;
+    }
+
+    select.sel2 {
+        width: 22%;
+        position: relative;
+        top: 5px;
+    }
+
+    select.sel3 {
+        width: 16%;
+        position: relative;
+        top: 5px;
+    }
+
+    .product-card select {
+        margin: 0;
+    }
+
+    .product-price {
+        width: 5%;
+        height: 50px;
+        line-height: 50px;
+        padding: 12px;
+        margin: 0 5px;
+    }
+
+    .product-price {
+        font-size: 12px;
+        top: 5px;
+        border-radius: inherit;
+    }
+
+    .add-to-cart-btn {
+        padding: 8px;
+        line-height: 10px;
+        font-size: 12px;
+        height: 42px;
+        top: 6px;
+        text-align: center;
+        width: 21%;
+        display: inline;
+        margin: 0 auto 10px;
+        border-radius: 1px;
+    }
+
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+
+    .product-info {
+        width: 45%;
+    }
+
+    select.sel1 {
+        margin: 0;
+        width: 6%;
+    }
+
+    select.sel2 {
+        width: 12%;
+    }
+
+    select.sel3 {
+        width: 8%;
+    }
+
+    .product-price {
+        margin: 0 10px;
+        width: 8%;
+    }
+
+    .add-to-cart-btn {
+        width: 17%;
+    }
+
+    .product-card select {
+        margin: 0 5px;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+
+    .mobhide {
+        display: none;
+    }
+}
+=======
+#bar{
+height: 80px !important;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100vw;
+margin-left: -67px;
+z-index: 999;
+bottom:0;
+padding: 10px;
+left:0;
+height: 140px;
+background-color: navajowhite;
+color: white;
 }
 
 .page-width{
-    max-width: 100% !important;
+max-width: 100% !important;
 }
 
 #sticky {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    z-index: 1000;
-    max-height: 20%;
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background-color: #f8f8f8;
+border-top: 1px solid #ddd;
+text-align: center;
+z-index: 1000;
+max-height: 20%;
 }
 
 .cartbtn {
-    background-color: black;
-    /* color: white; */
-    padding: 11px 20px;
-    margin: 19px 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    height: 48px;
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-    border-radius: 25px;
+background-color: black;
+/* color: white; */
+padding: 11px 20px;
+margin: 19px 10px;
+border: none;
+cursor: pointer;
+font-size: 16px;
+height: 48px;
+font-family: Helvetica, sans-serif;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+transition: 0.3s;
+border-radius: 25px;
 }
 h2{
-    text-transform: capitalize;
-    font-size: 16px;
-    font-family: Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
+text-transform: capitalize;
+font-size: 16px;
+font-family: Helvetica, sans-serif;
+margin: 0;
+padding: 0;
 }
 
 .scrollToTopBtn {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    z-index: 100;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.5s ease;
+width: 100%;
+display: flex;
+position: fixed;
+bottom: 0px;
+right: 0px;
+z-index: 100;
+opacity: 0;
+transform: translateY(100px);
+transition: all 0.5s ease;
 }
 
 .showBtn {
-    opacity: 1;
-    transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 
 .lora-notificationbar{
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-  .notificationtext h2{
-    font-family: serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    /* color: white; */
+font-family: "Lora", serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+}
+.notificationtext h2{
+font-family: serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+/* color: white; */
 
-  }
+}
 
 
-  .numberstyle{
-    border: none;
-    width: 101px;
-    margin: 8px;
-    text-align: center;
-    text-align: -webkit-center;
-    border-radius: 25px;
-    background-color: chocolate;
-    font-size: 16px;
+.numberstyle{
+border: none;
+width: 101px;
+margin: 8px;
+text-align: center;
+text-align: -webkit-center;
+border-radius: 25px;
+background-color: chocolate;
+font-size: 16px;
 }
 .proquantity{
-    display: flex;
+display: flex;
 }
 .proprice{
-    display: flex;
-    margin-top: 30px 0px;
+display: flex;
+margin-top: 30px 0px;
 }
+

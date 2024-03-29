@@ -7,44 +7,66 @@
 }
 {% endschema %}
 
-{% comment %} <div id="sticky" class="scrollToTopBtn"> {% endcomment %}
-  <div id="bar">
-    <img class="svimg" width="150px" height="50px" src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/radicallogo.png?v=1710935056"/>
-    <div>
-      <h2 id="producttitle"></h2>
-    </div>
-    <div class="proquantity">
-    <div> 
-      <h2 style="margin-top: 14px" id="qtytext">Quantity</h2>
-      </div>
-      <div>
-      <input 
-      class="numberstyle"
-      type="number" 
-      id="quantity"
-      value="1" 
-      min="1" 
-      max="{{ product.variants[0].inventory_quantity }}" 
-      onchange="updateQuantity(this.value);">
 
-      <h2 id="quantity"></h2>
-    </div>
-    </div>
-    <div class="proprice">
-      <div>
-     <h2 id="pricetext">Price&nbsp;</h2>
-      </div>
-      <div>
-      <h2 id="Price" style="font-weight: 600;" ></h2>
-      </div>
-    </div>
-    <div id="cart_btn">
-      <button class="cartbtn" type="submit" onclick="cartChange()">Add to cart</button>
-    </div>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+>
+
+<section class="add-cart-section" id="add-cart-id">
+  <div id="pnotibarbtn" class="showpnotibar">
+
+        <div class="product-card">
+            <div class="product-info mobhide">
+              <img width="50px" height="50px" src="{{ product.featured_image.src | img_url: 'master' }}" class="earring-img">
+              <h3>{{ product.title }}</h3>
+            </div>
     
-  </div>
-{% comment %} </div> {% endcomment %}
-<script>
+            <select class="form-control round sel1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+       <div class="metal">
+        <select id="metal-dropdown">
+    <option value="">Select Metal</option>
+    {% for variant in product.variants %}
+        {% assign metal = variant.title | split: ' / ' | first %}
+        {% if product.selected_variant.title == variant.title %}
+            <option value="{{ metal }}" selected>{{ metal }}</option>
+        {% else %}
+            <option value="{{ metal }}">{{ metal }}</option>
+        {% endif %}
+    {% endfor %}
+</select>
+
+      </div>
+      <select id="size-input" class="form-control round sel3">
+        {% for variant in product.variants %}
+            {% assign size = variant.title | split: ' / ' | last %}
+            {% if product.selected_variant.title == variant.title %}
+                <option value="{{ size }}" selected>{{ size }}</option>
+            {% else %}
+                <option value="{{ size }}">{{ size }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    
+            <span class="product-price">$200</span>
+    
+            <button class="add-to-cart-btn">Buy Now</button>
+            <div class="clearfix"></div>
+        </div>
+    
+    </div>
+</section>
+
+
+{% comment %} <script>
   function updateQuantity(value) {
     console.log(value); 
   }
@@ -176,6 +198,153 @@
       console.log(error)
     }
 
+</script>  {% endcomment %}
+
+  {% comment %} <script>
+  let key; 
+ const obj = [
+    {% for variant in product.variants %}
+        { "{{ variant.id }}": "{{ variant.title }}" },
+    {% endfor %}
+]; 
+
+document.addEventListener('click', function() {
+    const metalval = document.getElementById('metal-input').value;
+    const sizeval = document.getElementById('size-input').value;
+    const result = metalval + " / " + sizeval;
+    console.log("m", metalval, "s", sizeval);
+    console.log("concat:", result);
+    console.log("variant",{{ variant.title | split: ' / ' | first }})
+
+    const match = obj.find(item => Object.values(item)[0] === result);
+    if (match) {
+        key = Object.keys(match)[0];
+        console.log("Key:", key);
+    } else {
+        console.log("No matching key found.");
+    }
+});
+
+  console.log("hello",obj);
+  async function cartChange() {
+    
+    const metal = document.getElementById('metal-input').value;
+    const size = document.getElementById('size-input').value;
+    const quantity = document.getElementById('number-input').value;
+
+    const productId = key;
+    console.log(metal, size, quantity, productId);
+  const line = {
+    id: productId, 
+    quantity: parseInt(quantity),
+  };
+  console.log("line",line)
+  const body = {
+    items: [line],
+  };
+  console.log("body", body);
+  try {
+    const response = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await response.json();
+    console.log('Success:', data);
+    //  location.reload(); 
+    // window.location.href = '/cart';
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+</script>  {% endcomment %}
+<script>
+  const metalInput = document.getElementById('metal-dropdown');
+  const metalset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | first }}',{% endfor %}]);
+  const metals = Array.from(metalset);
+  console.log("metals", metals);
+
+  metalInput.value = metals[0];
+
+  metalInput.addEventListener('change', () => {
+    // Update the currentIndex based on the selected metal
+    let currentIndex = metals.indexOf(metalInput.value);
+    console.log("currentIndex", currentIndex);
+  });
+</script>
+
+{% comment %} <script>
+    const sizeset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | last }}',{% endfor %}]);
+    const size = Array.from(sizeset);
+    console.log("size",size.indexOf('{{ product.selected_variant.title }}'))
+    let currentIndexofsize = size.indexOf('{{ product.selected_variant.title }}');
+
+  const sizeInput = document.getElementById('size-input');
+  const sizePrevBtn = document.getElementById('prev-btn');
+  const sizeNextBtn = document.getElementById('next-btn');
+  sizeInput.value = size[0];
+  sizePrevBtn.addEventListener('click', () => {
+    decrementsize();
+  });
+
+  sizeNextBtn.addEventListener('click', () => {
+    incrementsize();
+  });
+
+  function decrementsize() {
+    currentIndexofsize = (currentIndexofsize - 1 + size.length) % size.length;
+    sizeInput.value = size[currentIndexofsize];
+  }
+
+  function incrementsize() {
+    currentIndexofsize = (currentIndexofsize + 1) % size.length;
+    sizeInput.value = size[currentIndexofsize];
+  }
+</script> {% endcomment %}
+
+{% comment %} <script>
+  document.getElementById('number-input').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+
+  function updateLabelsAndPrice(selectedNumber) {
+    var price = parseFloat('{{ product.price | money_without_currency }}');
+    var totalPrice = price * selectedNumber;
+    document.getElementById('price').textContent = totalPrice.toFixed(2);
+
+  }
+
+  function updateNumberInputValue(selectedNumber) {
+    document.getElementById('number-input').value = selectedNumber;
+    updateLabelsAndPrice(selectedNumber);
+  }
+
+  document.getElementById('prev-btn-number').addEventListener('click', function () {
+    var selectedNumber = parseInt(document.getElementById('number-input').value);
+    if (selectedNumber > 1) {
+      updateNumberInputValue(selectedNumber - 1);
+    }
+  });
+
+  document.getElementById('next-btn-number').addEventListener('click', function () {
+    var selectedNumber = parseInt(document.getElementById('number-input').value);
+    updateNumberInputValue(selectedNumber + 1);
+  });
+
+  updateLabelsAndPrice(1);
+</script> {% endcomment %}
+
+<script
+  defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+  integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+
   // function handleScroll() {
   //   var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
   //   if (rootElement.scrollTop / scrollTotal > 0.5) {
@@ -185,5 +354,6 @@
   //   }
   // }
   // document.addEventListener("scroll", handleScroll);
-});
-</script>
+{% comment %} }); {% endcomment %}
+
+
