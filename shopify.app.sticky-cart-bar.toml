@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
-name = "Sticky_cart_bar"
-handle = "sticky_cart_bar"
-application_url = "https://pushed-hudson-demographic-ethernet.trycloudflare.com"
+client_id = "2c3a95478b6bae165e020210bc5fe047"
+name = "Sticky_Cart_Bar"
+handle = "sticky_cart_bar-3"
+application_url = "https://dispatched-top-frames-author.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "storeapp-dev.myshopify.com"
+dev_store_url = "sticky-cart-bar.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/auth/callback",
-  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/auth/shopify/callback",
-  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/api/auth/callback"
+  "https://dispatched-top-frames-author.trycloudflare.com/auth/callback",
+  "https://dispatched-top-frames-author.trycloudflare.com/auth/shopify/callback",
+  "https://dispatched-top-frames-author.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
