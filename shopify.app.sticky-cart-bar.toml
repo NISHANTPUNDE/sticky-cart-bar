@@ -3,7 +3,7 @@
 client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
 name = "Sticky_cart_bar"
 handle = "sticky_cart_bar"
-application_url = "https://reason-slope-welsh-pmc.trycloudflare.com"
+application_url = "https://pushed-hudson-demographic-ethernet.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://reason-slope-welsh-pmc.trycloudflare.com/auth/callback",
-  "https://reason-slope-welsh-pmc.trycloudflare.com/auth/shopify/callback",
-  "https://reason-slope-welsh-pmc.trycloudflare.com/api/auth/callback"
+  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/auth/callback",
+  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/auth/shopify/callback",
+  "https://pushed-hudson-demographic-ethernet.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
