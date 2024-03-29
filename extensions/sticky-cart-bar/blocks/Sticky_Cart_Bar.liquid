@@ -7,7 +7,6 @@
 }
 {% endschema %}
 
-
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -18,63 +17,93 @@
 
 <section class="add-cart-section" id="add-cart-id">
   <div id="pnotibarbtn" class="showpnotibar">
-
-        <div class="product-card">
-            <div class="product-info mobhide">
-              <img width="50px" height="50px" src="{{ product.featured_image.src | img_url: 'master' }}" class="earring-img">
-              <h3>{{ product.title }}</h3>
-            </div>
-    
-            <select class="form-control round sel1">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-       <div class="metal">
-        <select id="metal-dropdown">
-    <option value="">Select Metal</option>
-    {% for variant in product.variants %}
-        {% assign metal = variant.title | split: ' / ' | first %}
-        {% if product.selected_variant.title == variant.title %}
-            <option value="{{ metal }}" selected>{{ metal }}</option>
-        {% else %}
-            <option value="{{ metal }}">{{ metal }}</option>
-        {% endif %}
-    {% endfor %}
-</select>
-
+    <div class="product-card">
+      <div class="product-info mobhide">
+        <img width="50px" height="50px" src="{{ product.featured_image.src | img_url: 'master' }}" class="earring-img">
+        <h3>{{ product.title }}</h3>
       </div>
+
+      <select class="form-control round sel1" id="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <div class="metal">
+       
+        <select id="metal-dropdown" class="metal-select" style="width:90px; margin:6px">
+          {% assign selected_metals = '' %}
+          {% for variant in product.variants %}
+            {% assign metal = variant.title | split: ' / ' | first %}
+            {% unless selected_metals contains metal %}
+              {% if product.selected_variant.title == variant.title %}
+                <option value="{{ metal }}" selected>{{ metal }}</option>
+              {% else %}
+                <option value="{{ metal }}">{{ metal }}</option>
+              {% endif %}
+              {% assign selected_metals = selected_metals | append: metal | append: '|' %}
+            {% endunless %}
+          {% endfor %}
+        </select>
+      </div>
+    
       <select id="size-input" class="form-control round sel3">
+        {% assign selected_sizes = '' %}
         {% for variant in product.variants %}
-            {% assign size = variant.title | split: ' / ' | last %}
+          {% assign size = variant.title | split: ' / ' | last %}
+          {% unless selected_sizes contains size %}
             {% if product.selected_variant.title == variant.title %}
-                <option value="{{ size }}" selected>{{ size }}</option>
+              <option value="{{ size }}" selected>{{ size }}</option>
             {% else %}
-                <option value="{{ size }}">{{ size }}</option>
+              <option value="{{ size }}">{{ size }}</option>
             {% endif %}
+            {% assign selected_sizes = selected_sizes | append: size | append: '|' %}
+          {% endunless %}
         {% endfor %}
-    </select>
-    
-            <span class="product-price">$200</span>
-    
-            <button class="add-to-cart-btn">Buy Now</button>
-            <div class="clearfix"></div>
-        </div>
-    
+      </select>
+
+      <span class="product-price">$200</span>
+
+      <button class="add-to-cart-btn" onclick="cartChange()">Buy Now</button>
+      <div class="clearfix"></div>
     </div>
+  </div>
 </section>
 
+<script>
 
-{% comment %} <script>
-  function updateQuantity(value) {
-    console.log(value); 
-  }
+    let key;
+     const obj = [
+        {% for variant in product.variants %}
+            { "{{ variant.id }}": "{{ variant.title }}" },
+        {% endfor %}
+    ];
+    console.log(obj);
+    document.addEventListener('click', function() {
+      const metalval = document.getElementById('metal-dropdown').value;
+      const sizeval = document.getElementById('size-input').value;
+      const result = metalval + " / " + sizeval;
+      console.log("m", metalval, "s", sizeval);
+      console.log("concat:", result);
+      console.log("variant",{{ variant.title | split: ' / ' | first }})
+
+      const match = obj.find(item => Object.values(item)[0] === result);
+      if (match) {
+          key = Object.keys(match)[0];
+          console.log("Key:", key);
+      } else {
+          console.log("No matching key found.");
+      }
+  });
   async function cartChange() {
-  const productId = {{ product.variants[0].id }}; 
-  var quantityInput = document.getElementById("quantity");
-  var quantityValue = quantityInput.value; 
-  const data = {
+  const productId = key;
+  console.log("q",productId);
+   var quantityInput = document.getElementById("quantity");
+  var quantityValue = quantityInput.value;
+
+    console.log("a",quantityValue);
+  
+   const data = {
     items: [
         {
           id: productId,
@@ -82,7 +111,7 @@
         }
       ]
     };
-    
+
     const response = await fetch("/cart/add.js", {
       method: "POST",
       headers: {
@@ -92,10 +121,11 @@
       body: JSON.stringify(data)
     });
 
-    const myJson = await response.json(); 
+    const myJson = await response.json();
     console.log(myJson);
     if(response.ok)
     {
+      console.log(data)
       window.location.href = "/cart";
     }
     else
@@ -103,163 +133,8 @@
       alert("Product not added to cart");
     }
   }
-  
-  document.addEventListener('DOMContentLoaded', async() => {
-    const producttitle = document.getElementById('producttitle');
-    const quantity = document.getElementById('quantity');
-    const Price = document.getElementById('Price');
-    producttitle.innerText = "{{ product.title }}";
-    quantity.innerText = "{{ product.variants[0].inventory_quantity }}";  
-    Price.innerText = "{{ product.price | money_with_currency }}";
-    
-    var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-    var rootElement = document.documentElement;
-    const shopid = {{ shop.id }};
-    try {
-        const response = await fetch(`https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/color/${shopid}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+</script>
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok in color');
-        }
-
-        const data = await response.json();
-        const success = data.success;
-        console.log(success)
-        console.log(data.data[0])
-        if (success === 1) {
-            const bar=document.getElementById('bar')
-            bar.style.background=data.data[0].bgColor
-            const producttitle = document.getElementById('producttitle');
-            const quantity = document.getElementById('quantity');
-            const Price = document.getElementById('Price');
-            const cartbtn=document.getElementsByClassName('cartbtn')
-            const qtytext=document.getElementById('qtytext')
-            const pricetext=document.getElementById('pricetext')
-
-            producttitle.style.color = data.data[0].textColor;
-            quantity.style.color = data.data[0].textColor;
-            Price.style.color = data.data[0].textColor;
-            bar.style.color = data.data[0].textColor;
-            qtytext.style.color = data.data[0].textColor;
-            pricetext.style.color = data.data[0].textColor;
-           for (let i = 0; i < cartbtn.length; i++) {
-                cartbtn[i].style.color = data.data[0].textColor;
-            }
-        } else {
-          console.log("error in changing bgcolor and color")
-        }
-    } catch (error) {
-        console.error('Error fetching in color:', error);
-    } 
-    try {
-      const settingResponse = await fetch(`https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/getSetting/${shopid}`);
-      if (settingResponse.ok) {
-        const settingData = await settingResponse.json();
-        const setting = settingData.data[0];
-        console.log(setting)
-        const proprice = document.getElementsByClassName('proprice')[0];
-        const logo = document.getElementsByClassName('svimg')[0];
-        const proname = document.getElementById('producttitle');
-        const quantity = document.getElementsByClassName('proquantity')[0];
-        const button = document.getElementsByClassName('cartbtn')[0];
-        const bar = document.getElementById('bar');
-
-        proprice.style.display = setting.price == 1 ? 'block' : 'none';
-        logo.style.display = setting.logo == 1 ? 'block' : 'none';
-        proname.style.display = setting.product_name == 1 ? 'block' : 'none';
-        quantity.style.display = setting.quantity == 1 ? 'block' : 'none';
-        button.style.display = setting.cart_button == 1 ? 'block' : 'none';
-        bar.style.display = setting.popup_bar == 1 ? 'flex' : 'none';
-      } else {
-        throw new Error('Network response was not ok in setting');
-      }
-    } catch (error) {
-      console.error('Error fetching in setting:', error);
-    }
-    const productid={{ product.id }}
-    try
-    {
-      const productres= await fetch(`https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/${productid}`);
-      if(productres.ok){
-        const productData = await productres.json();
-        const product = productData.success
-        console.log("pro1",product)
-        const bar= document.getElementById('bar')
-
-        bar.style.display = product == 1 ? "flex" : "none";
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
-
-</script>  {% endcomment %}
-
-  {% comment %} <script>
-  let key; 
- const obj = [
-    {% for variant in product.variants %}
-        { "{{ variant.id }}": "{{ variant.title }}" },
-    {% endfor %}
-]; 
-
-document.addEventListener('click', function() {
-    const metalval = document.getElementById('metal-input').value;
-    const sizeval = document.getElementById('size-input').value;
-    const result = metalval + " / " + sizeval;
-    console.log("m", metalval, "s", sizeval);
-    console.log("concat:", result);
-    console.log("variant",{{ variant.title | split: ' / ' | first }})
-
-    const match = obj.find(item => Object.values(item)[0] === result);
-    if (match) {
-        key = Object.keys(match)[0];
-        console.log("Key:", key);
-    } else {
-        console.log("No matching key found.");
-    }
-});
-
-  console.log("hello",obj);
-  async function cartChange() {
-    
-    const metal = document.getElementById('metal-input').value;
-    const size = document.getElementById('size-input').value;
-    const quantity = document.getElementById('number-input').value;
-
-    const productId = key;
-    console.log(metal, size, quantity, productId);
-  const line = {
-    id: productId, 
-    quantity: parseInt(quantity),
-  };
-  console.log("line",line)
-  const body = {
-    items: [line],
-  };
-  console.log("body", body);
-  try {
-    const response = await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    const data = await response.json();
-    console.log('Success:', data);
-    //  location.reload(); 
-    // window.location.href = '/cart';
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-</script>  {% endcomment %}
 <script>
   const metalInput = document.getElementById('metal-dropdown');
   const metalset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | first }}',{% endfor %}]);
@@ -274,86 +149,5 @@ document.addEventListener('click', function() {
     console.log("currentIndex", currentIndex);
   });
 </script>
-
-{% comment %} <script>
-    const sizeset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | last }}',{% endfor %}]);
-    const size = Array.from(sizeset);
-    console.log("size",size.indexOf('{{ product.selected_variant.title }}'))
-    let currentIndexofsize = size.indexOf('{{ product.selected_variant.title }}');
-
-  const sizeInput = document.getElementById('size-input');
-  const sizePrevBtn = document.getElementById('prev-btn');
-  const sizeNextBtn = document.getElementById('next-btn');
-  sizeInput.value = size[0];
-  sizePrevBtn.addEventListener('click', () => {
-    decrementsize();
-  });
-
-  sizeNextBtn.addEventListener('click', () => {
-    incrementsize();
-  });
-
-  function decrementsize() {
-    currentIndexofsize = (currentIndexofsize - 1 + size.length) % size.length;
-    sizeInput.value = size[currentIndexofsize];
-  }
-
-  function incrementsize() {
-    currentIndexofsize = (currentIndexofsize + 1) % size.length;
-    sizeInput.value = size[currentIndexofsize];
-  }
-</script> {% endcomment %}
-
-{% comment %} <script>
-  document.getElementById('number-input').addEventListener('input', function () {
-    this.value = this.value.replace(/[^0-9]/g, '');
-  });
-
-  function updateLabelsAndPrice(selectedNumber) {
-    var price = parseFloat('{{ product.price | money_without_currency }}');
-    var totalPrice = price * selectedNumber;
-    document.getElementById('price').textContent = totalPrice.toFixed(2);
-
-  }
-
-  function updateNumberInputValue(selectedNumber) {
-    document.getElementById('number-input').value = selectedNumber;
-    updateLabelsAndPrice(selectedNumber);
-  }
-
-  document.getElementById('prev-btn-number').addEventListener('click', function () {
-    var selectedNumber = parseInt(document.getElementById('number-input').value);
-    if (selectedNumber > 1) {
-      updateNumberInputValue(selectedNumber - 1);
-    }
-  });
-
-  document.getElementById('next-btn-number').addEventListener('click', function () {
-    var selectedNumber = parseInt(document.getElementById('number-input').value);
-    updateNumberInputValue(selectedNumber + 1);
-  });
-
-  updateLabelsAndPrice(1);
-</script> {% endcomment %}
-
-<script
-  defer
-  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
-  integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
-
-
-  // function handleScroll() {
-  //   var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-  //   if (rootElement.scrollTop / scrollTotal > 0.5) {
-  //     scrollToTopBtn.classList.add("showBtn");
-  //   } else {
-  //     scrollToTopBtn.classList.remove("showBtn");
-  //   }
-  // }
-  // document.addEventListener("scroll", handleScroll);
-{% comment %} }); {% endcomment %}
 
 

@@ -3,12 +3,13 @@
 client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
 name = "Sticky_cart_bar"
 handle = "sticky_cart_bar"
-application_url = "https://properly-anticipated-postings-experience.trycloudflare.com"
+application_url = "https://reason-slope-welsh-pmc.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
 dev_store_url = "storeapp-dev.myshopify.com"
+include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -16,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://properly-anticipated-postings-experience.trycloudflare.com/auth/callback",
-  "https://properly-anticipated-postings-experience.trycloudflare.com/auth/shopify/callback",
-  "https://properly-anticipated-postings-experience.trycloudflare.com/api/auth/callback"
+  "https://reason-slope-welsh-pmc.trycloudflare.com/auth/callback",
+  "https://reason-slope-welsh-pmc.trycloudflare.com/auth/shopify/callback",
+  "https://reason-slope-welsh-pmc.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
