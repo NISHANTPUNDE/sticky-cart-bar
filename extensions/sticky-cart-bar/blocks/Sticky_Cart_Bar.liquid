@@ -62,7 +62,7 @@
         {% endfor %}
       </select>
 
-      <span class="product-price">$200</span>
+      <div class="product-price" id="svprice"></div>
 
       <button class="add-to-cart-btn" onclick="cartChange()">Buy Now</button>
       <div class="clearfix"></div>
@@ -71,6 +71,22 @@
 </section>
 
 <script>
+  function selected(selectedNumber=1){
+  var price = parseFloat('{{ product.price | money_without_currency  }}');
+    var totalPrice = price * selectedNumber;
+    console.log("price",totalPrice);
+    var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
+    console.log("curr",currency[0])
+
+    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice;
+    
+      }
+      selected();
+      document.getElementById('quantity').addEventListener('change', function(){
+        selected(this.value);
+      });
+
+
 
     let key;
      const obj = [
@@ -79,10 +95,30 @@
         {% endfor %}
     ];
     console.log(obj);
-    document.addEventListener('click', function() {
-      const metalval = document.getElementById('metal-dropdown').value;
-      const sizeval = document.getElementById('size-input').value;
-      const result = metalval + " / " + sizeval;
+    const a=[{% for variant in product.variants %}
+            "{{ variant.title }}" ,
+        {% endfor %}]
+    console.log("a",a)
+
+
+document.addEventListener('click', function() {
+    const metalval = document.getElementById('metal-dropdown').value;
+    const sizeval = document.getElementById('size-input').value;  
+    let result;
+    if (a[0].includes('/')) {
+  result = metalval + " / " + sizeval;
+  console.log("metal", metalval, "size", sizeval);
+  console.log("concat:", result);
+} else if (!a[0].includes(' / ')) {
+   result = metalval;
+   const size = document.getElementById('size-input')
+   size.style.display = 'none';
+  console.log("met", metalval);
+  console.log("concat:", result);
+}
+
+
+
       console.log("m", metalval, "s", sizeval);
       console.log("concat:", result);
       console.log("variant",{{ variant.title | split: ' / ' | first }})
@@ -95,6 +131,20 @@
           console.log("No matching key found.");
       }
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const metalval = document.getElementById('metal-dropdown').value;
+    const sizeval = document.getElementById('size-input').value;  
+    let result;
+    if (a[0].includes('/')) {
+  console.log("fg")
+} else if (!a[0].includes(' / ')) {
+   const size = document.getElementById('size-input')
+   size.style.display = 'none';
+}
+      })
+
+
   async function cartChange() {
   const productId = key;
   console.log("q",productId);
@@ -133,21 +183,6 @@
       alert("Product not added to cart");
     }
   }
-</script>
-
-<script>
-  const metalInput = document.getElementById('metal-dropdown');
-  const metalset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | first }}',{% endfor %}]);
-  const metals = Array.from(metalset);
-  console.log("metals", metals);
-
-  metalInput.value = metals[0];
-
-  metalInput.addEventListener('change', () => {
-    // Update the currentIndex based on the selected metal
-    let currentIndex = metals.indexOf(metalInput.value);
-    console.log("currentIndex", currentIndex);
-  });
 </script>
 
 
