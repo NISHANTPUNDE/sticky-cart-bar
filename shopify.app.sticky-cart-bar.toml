@@ -3,7 +3,7 @@
 client_id = "0d8d8a4a2a6955698c50a2a1a881e05e"
 name = "Sticky-cart-bar"
 handle = "sticky-cart-bar-8"
-application_url = "https://arm-sherman-various-chocolate.trycloudflare.com"
+application_url = "https://determination-del-fixtures-individuals.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://arm-sherman-various-chocolate.trycloudflare.com/auth/callback",
-  "https://arm-sherman-various-chocolate.trycloudflare.com/auth/shopify/callback",
-  "https://arm-sherman-various-chocolate.trycloudflare.com/api/auth/callback"
+  "https://determination-del-fixtures-individuals.trycloudflare.com/auth/callback",
+  "https://determination-del-fixtures-individuals.trycloudflare.com/auth/shopify/callback",
+  "https://determination-del-fixtures-individuals.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
