@@ -71,6 +71,15 @@
 </section>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var productid = '{{ product.id }}'; 
+    console.log("product", productid);
+    if (!productid || productid === '') {
+        document.getElementById('add-cart-id').style.display = 'none';
+    }
+});
+
+
   function selected(selectedNumber=1){
   var price = parseFloat('{{ product.price | money_without_currency  }}');
     var totalPrice = price * selectedNumber;
@@ -78,7 +87,7 @@
     var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
     console.log("curr",currency[0])
 
-    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice;
+    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice.toFixed(2);
     
       }
       selected();
