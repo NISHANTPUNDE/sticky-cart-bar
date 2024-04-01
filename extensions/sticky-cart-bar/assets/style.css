@@ -198,7 +198,7 @@ body{
         height: 40px;
         line-height: 40px;
         font-style: italic;
-        font-size: 16px!;
+        font-size: 15px!important;
         margin: 0 30px;
         border-radius: 5px;
         position: relative;
@@ -302,7 +302,7 @@ body{
             width: 91px !important;
             padding-top: 0px !important;
             height: 40px;
-            font-size: 17px;
+            font-size: 14px!important;
             top: 5px;
             border-radius: inherit;
         }
@@ -407,7 +407,7 @@ body{
         }
 
         .product-price {
-            font-size: 12px;
+            font-size: 12px!important;
             top: 5px;
         }
 
@@ -505,7 +505,7 @@ body{
            
             top: 5px;
             border-radius: inherit;
-            font-size: 12px;
+            font-size: 10px!important;
            
            
         }
@@ -531,12 +531,12 @@ body{
     @media only screen and (min-width: 768px) and (max-width: 1440px) {
 
         .product-info {
-            width: 45%;
+            width: 49%;
         }
 
         select.sel1 {
             margin: 0;
-            width: 6%;
+            width: 7%;
         }
 
         select.sel2 {

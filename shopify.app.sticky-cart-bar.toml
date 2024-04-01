@@ -3,7 +3,7 @@
 client_id = "bc527e1f585fa6993480451b1ba7ff8a"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-6"
-application_url = "https://officers-bush-mating-lawyers.trycloudflare.com"
+application_url = "https://taiwan-warned-downloadable-abstracts.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://officers-bush-mating-lawyers.trycloudflare.com/auth/callback",
-  "https://officers-bush-mating-lawyers.trycloudflare.com/auth/shopify/callback",
-  "https://officers-bush-mating-lawyers.trycloudflare.com/api/auth/callback"
+  "https://taiwan-warned-downloadable-abstracts.trycloudflare.com/auth/callback",
+  "https://taiwan-warned-downloadable-abstracts.trycloudflare.com/auth/shopify/callback",
+  "https://taiwan-warned-downloadable-abstracts.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
