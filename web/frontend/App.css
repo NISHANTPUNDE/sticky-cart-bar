@@ -351,6 +351,12 @@ input:checked[type="checkbox"]:before {
   #cart_btn{
     margin-left: 45%;
   }
+  #variant1{
+    margin-left: 65%;
+  }
+  #variant2{
+    margin-left: 64%;
+  }
 /* label {
   padding: 10px;
  } */

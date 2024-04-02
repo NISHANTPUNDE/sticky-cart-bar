@@ -151,6 +151,33 @@ export default function Setting() {
               </div>
               </div>
 
+              <div className="col2">
+              <div>
+                <label htmlFor="variant1">Show Variant1</label>
+                <input
+                  type="checkbox"
+                  name="variant1"
+                  id="variant1"
+                  // value={settingdata.quantity}
+                  // checked={settingdata.quantity}
+                  // onChange={handleChange}
+                />
+
+              </div>
+              
+              <div>
+                <label htmlFor="variant2">Show Variant2</label>
+                <input
+                  type="checkbox"
+                  name="variant2"
+                  id="variant2"
+                  // value={settingdata.price}
+                  // checked={settingdata.price}
+                  // onChange={handleChange}
+                />
+              </div>
+              </div>
+
               <div className="col3">
               <div className="popup_bar">
                 <label htmlFor="popup_bar">Show Popup Bar</label>
