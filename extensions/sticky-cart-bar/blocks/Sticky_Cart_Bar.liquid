@@ -29,12 +29,9 @@
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
-      <select class="form-control round sel1 svquantitytransparant">
-        <option value="1">1</option>
-      </select>
       <div class="metal">
        
-        <select id="metal-dropdown svmetaltransparent" class="metal-select" style="width:90px; margin:6px">
+        <select id="metal-dropdown" class="metal-select" style="width:90px; margin:6px">
           {% assign selected_metals = '' %}
           {% for variant in product.variants %}
             {% assign metal = variant.title | split: ' / ' | first %}
@@ -47,9 +44,6 @@
               {% assign selected_metals = selected_metals | append: metal | append: '|' %}
             {% endunless %}
           {% endfor %}
-        </select>
-        <select class="metal-select svmetaltransparent" style="width:90px; margin:6px">
-          <option value="1">1</option>
         </select>
       </div>
     
@@ -67,14 +61,10 @@
           {% endunless %}
         {% endfor %}
       </select>
-      <select class="form-control round sel3 svsizetransparent">
 
-      </select>
       <div class="product-price svproprice" id="svprice"></div>
-      <div class="product-price svpropricetransparent" id="svprice"></div>
 
-      <button class="add-to-cart-btn svcartbtn" onclick="cartChange()">Buy Now</button>
-      <button class="add-to-cart-btn svacartbtntransparent">Buy Now</button>
+      <button  class="add-to-cart-btn svcartbtn" onclick="cartChange()">Buy Now</button>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -260,23 +250,17 @@ document.addEventListener('click', function() {
         const setting = settingData.data[0];
         console.log(setting)
         const proprice = document.getElementsByClassName('svproprice')[0];
-        const propricetransparent = document.getElementsByClassName('svpropricetransparent')[0];
         const logo = document.getElementsByClassName('svimg')[0];
         const proname = document.getElementById('svproducttitle');
         const quantity = document.getElementsByClassName('svquantity')[0];
-        const quantitytransparent = document.getElementsByClassName('svquantitytransparant')[0];
         const button = document.getElementsByClassName('svcartbtn')[0];
-        const buttontransparent = document.getElementsByClassName('svacartbtntransparent')[0];
         const bar = document.getElementById('pnotibarbtn');
 
         proprice.style.display = setting.price == 1 ? 'block' : 'none';
-        propricetransparent.style.display = setting.price == 1 ? 'none' : 'block';
         logo.style.display = setting.logo == 1 ? 'block' : 'none';
         proname.style.display = setting.product_name == 1 ? 'block' : 'none';
         quantity.style.display = setting.quantity == 1 ? 'block' : 'none';
-        quantitytransparent.style.display = setting.quantity == 1 ? 'none' : 'block';
         button.style.display = setting.cart_button == 1 ? 'block' : 'none';
-        buttontransparent.style.display = setting.cart_button == 1 ? 'none' : 'block';
         bar.style.display = setting.popup_bar == 1 ? 'block' : 'none';
       } else {
         throw new Error('Network response was not ok in setting');
