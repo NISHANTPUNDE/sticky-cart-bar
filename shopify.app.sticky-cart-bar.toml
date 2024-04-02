@@ -3,7 +3,7 @@
 client_id = "bc527e1f585fa6993480451b1ba7ff8a"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-6"
-application_url = "https://opposed-authentication-biggest-shaft.trycloudflare.com"
+application_url = "https://trial-mint-business-trigger.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://opposed-authentication-biggest-shaft.trycloudflare.com/auth/callback",
-  "https://opposed-authentication-biggest-shaft.trycloudflare.com/auth/shopify/callback",
-  "https://opposed-authentication-biggest-shaft.trycloudflare.com/api/auth/callback"
+  "https://trial-mint-business-trigger.trycloudflare.com/auth/callback",
+  "https://trial-mint-business-trigger.trycloudflare.com/auth/shopify/callback",
+  "https://trial-mint-business-trigger.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

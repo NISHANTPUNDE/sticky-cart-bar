@@ -713,6 +713,7 @@ h2{
 .proprice{
     display: flex;
     margin-top: 30px 0px;
+<<<<<<< HEAD
 } */
 
 /* ********************************** new css here************************* */
@@ -1113,4 +1114,32 @@ button.rg-sticky-cart-bar-buy-now {
         letter-spacing: 1.02px;
         padding: 5px 7px;
     }
+=======
+}
+
+.svquantitytransparant{
+    color: transparent !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.svacartbtntransparent{
+    color: transparent !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.svmetaltransparent{
+    color: transparent !important;
+    border: none !important;
+    background: transparent !important;
+    display: none;
+}
+
+.svsizetransparent{
+    color: transparent !important;
+    border: none !important;
+    background: transparent !important;
+    display: none;
+>>>>>>> 79bbf03cf3d93f60efaa7b5dbb4795aff2438a2b
 }

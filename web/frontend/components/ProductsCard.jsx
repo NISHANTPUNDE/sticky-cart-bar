@@ -56,7 +56,7 @@ export function ProductsCard() {
     ),
     product.title,
     `$${product.variants[0].price}`,
-    data.find((i) => i.productid === product.id)?.Status==1 ? <div style={{color:'darkgreen'}}>Active</div> : <div style={{color:'darkblue'}}>Deactive</div>
+    data?.find((i) => i.productid === product.id)?.Status==1 ? <div style={{color:'darkgreen'}}>Active</div> : <div style={{color:'darkblue'}}>Deactive</div>
   ]);
   const handleAdd = () => {
     Promise.all(
@@ -118,6 +118,7 @@ export function ProductsCard() {
     setData(res.data);
     setStatus(res.data.map((i)=>i.Status))
   };
+  console.log("data",data);
   useEffect(() => {
     getData();
     fetchProducts();
