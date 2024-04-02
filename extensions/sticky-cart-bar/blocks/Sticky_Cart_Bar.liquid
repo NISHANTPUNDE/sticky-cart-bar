@@ -14,8 +14,71 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 >
+  <div class="rg-sticky-cart-bar" id="add-cart-id">
+    <div class="rg-sticky-cart-bar-main-div">
+        <div class="rg-sticky-cart-bar-image-title-main-div">
+            <div class="rg-sticky-cart-bar-product-image-div">
+              <img width="50px" height="50px" src="{{ product.featured_image.src | img_url: 'master' }}" class="earring-img">
+            </div>
+            <div class="rg-sticky-cart-bar-product-title-div">
+                <p>{{ product.title }}</p>
+            </div>
+        </div>
 
-<section class="add-cart-section" id="add-cart-id">
+        <div class="rg-sticky-cart-bar-main-select-div">
+            <div class="rg-sticky-cart-bar-quantity-div">
+              <select class="form-control round sel1" id="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="rg-sticky-cart-bar-color-div">
+                <select id="metal-dropdown" class="metal-select" class="rg-sticky-cart-bar-select-arrow-design color">
+                  {% assign selected_metals = '' %}
+                  {% for variant in product.variants %}
+                    {% assign metal = variant.title | split: ' / ' | first %}
+                    {% unless selected_metals contains metal %}
+                      {% if product.selected_variant.title == variant.title %}
+                        <option value="{{ metal }}" selected>{{ metal }}</option>
+                      {% else %}
+                        <option value="{{ metal }}">{{ metal }}</option>
+                      {% endif %}
+                      {% assign selected_metals = selected_metals | append: metal | append: '|' %}
+                    {% endunless %}
+                  {% endfor %}
+                </select>
+            </div>
+            <div class="rg-sticky-cart-bar-size-div">
+                <select id="size-input"  class="select-arrow-design size">
+                  {% assign selected_sizes = '' %}
+                  {% for variant in product.variants %}
+                    {% assign size = variant.title | split: ' / ' | last %}
+                    {% unless selected_sizes contains size %}
+                      {% if product.selected_variant.title == variant.title %}
+                        <option value="{{ size }}" selected>{{ size }}</option>
+                      {% else %}
+                        <option value="{{ size }}">{{ size }}</option>
+                      {% endif %}
+                      {% assign selected_sizes = selected_sizes | append: size | append: '|' %}
+                    {% endunless %}
+                  {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="rg-sticky-cart-bar-main-price-button-div">
+
+            <div class="rg-sticky-cart-bar-price-div" id="svprice"></div>
+            <div class="rg-sticky-cart-bar-button-div">
+              <button class="rg-sticky-cart-bar-buy-now" onclick="cartChange()">Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% comment %} <section class="add-cart-section" id="add-cart-id">
   <div id="pnotibarbtn" class="showpnotibar">
     <div class="product-card">
       
@@ -70,7 +133,7 @@
       <div class="clearfix"></div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -95,6 +158,7 @@
       selected();
       document.getElementById('quantity').addEventListener('change', function(){
         selected(this.value);
+        console.log(selected(this.value))
       });
 
 
