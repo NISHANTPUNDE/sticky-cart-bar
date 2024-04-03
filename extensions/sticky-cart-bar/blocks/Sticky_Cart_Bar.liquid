@@ -27,7 +27,7 @@
 
         <div class="rg-sticky-cart-bar-main-select-div">
             <div class="rg-sticky-cart-bar-quantity-div svquantity">
-              <select class="form-control round sel1" id="quantity">
+              <select class="form-control round sel1" id="svquantity" onchange="selected()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -199,9 +199,6 @@ document.addEventListener('click', function() {
   console.log("met", metalval);
   console.log("concat:", result);
 }
-
-
-
       console.log("m", metalval, "s", sizeval);
       console.log("concat:", result);
       console.log("variant",{{ variant.title | split: ' / ' | first }})
