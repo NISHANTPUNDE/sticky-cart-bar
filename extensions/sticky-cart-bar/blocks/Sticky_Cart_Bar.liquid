@@ -154,13 +154,13 @@
 
 
   function selected(selectedNumber=1){
-  var price = ('{{ product.price | money_without_currency  }}');
+  var price = parseFloat('{{ product.price | money_without_currency  }}');
     var totalPrice = price * selectedNumber;
     console.log("price",totalPrice);
     var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
     console.log("curr",currency[0])
 
-    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice.toFixed(2);
+    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice;
     
       }
       selected();
