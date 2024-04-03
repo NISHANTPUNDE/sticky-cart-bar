@@ -22,6 +22,8 @@ export default function Setting() {
     product_name: "",
     quantity: "",
     price: "",
+    variant1: "",
+    variant2:"",
     popup_bar: "",
     cart_btn: "",
   });
@@ -46,6 +48,8 @@ export default function Setting() {
           price: settingdata.price,
           popup_bar: settingdata.popup_bar,
           cart_button: settingdata.cart_btn,
+          variant1: settingdata.variant1,
+          variant2: settingdata.variant2,
           shopid: shopid,
         }
       )
@@ -72,6 +76,8 @@ export default function Setting() {
           price: res.data.data[0].price,
           popup_bar: res.data.data[0].popup_bar,
           cart_btn: res.data.data[0].cart_button,
+          variant1: res.data.data[0].variant1,
+          variant2: res.data.data[0].variant2,
         })
       )
       .catch((err) => err);
@@ -96,86 +102,111 @@ export default function Setting() {
         <Layout.Section>
           <Card>
             <div className="setting-container">
-            <div className="col1">
-              <div>
-                <label htmlFor="logo">Show logo</label>
-                <input
-                  type="checkbox"
-                  name="logo"
-                  id="logo"
-                  value={settingdata.logo}
-                  checked={settingdata.logo}
-                  onChange={handleChange}
-                />
+              <div className="col1">
+                <div>
+                  <label htmlFor="logo">Show logo</label>
+                  <input
+                    type="checkbox"
+                    name="logo"
+                    id="logo"
+                    value={settingdata.logo}
+                    checked={settingdata.logo}
+                    onChange={handleChange}
+                  />
 
-              </div>
-            
-              <div>
-                <label htmlFor="product_name">Show Product Name</label>
-                <input
-                  type="checkbox"
-                  name="product_name"
-                  id="product_name"
-                  value={settingdata.product_name}
-                  checked={settingdata.product_name}
-                  onChange={handleChange}
-                />
+                </div>
 
+                <div>
+                  <label htmlFor="product_name">Show Product Name</label>
+                  <input
+                    type="checkbox"
+                    name="product_name"
+                    id="product_name"
+                    value={settingdata.product_name}
+                    checked={settingdata.product_name}
+                    onChange={handleChange}
+                  />
+
+                </div>
               </div>
+
+              <div className="col2">
+                <div>
+                  <label htmlFor="quantity">Show Quantity</label>
+                  <input
+                    type="checkbox"
+                    name="quantity"
+                    id="qty"
+                    value={settingdata.quantity}
+                    checked={settingdata.quantity}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+                <div>
+                  <label htmlFor="price">Show Price</label>
+                  <input
+                    type="checkbox"
+                    name="price"
+                    id="price"
+                    value={settingdata.price}
+                    checked={settingdata.price}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-            
-            <div className="col2">
+              <div className="col2">
               <div>
-                <label htmlFor="quantity">Show Quantity</label>
+                <label htmlFor="variant1">Show Variant1</label>
                 <input
                   type="checkbox"
-                  name="quantity"
-                  id="qty"
-                  value={settingdata.quantity}
-                  checked={settingdata.quantity}
+                  name="variant1"
+                  id="variant1"
+                  value={settingdata.variant1}
+                  checked={settingdata.variant1}
                   onChange={handleChange}
                 />
 
               </div>
               
               <div>
-                <label htmlFor="price">Show Price</label>
+                <label htmlFor="variant2">Show Variant2</label>
                 <input
                   type="checkbox"
-                  name="price"
-                  id="price"
-                  value={settingdata.price}
-                  checked={settingdata.price}
+                  name="variant2"
+                  id="variant2"
+                  value={settingdata.variant2}
+                  checked={settingdata.variant2}
                   onChange={handleChange}
                 />
               </div>
               </div>
-
               <div className="col3">
-              <div className="popup_bar">
-                <label htmlFor="popup_bar">Show Popup Bar</label>
-                <input
-                  type="checkbox"
-                  name="popup_bar"
-                  id="popup_bar"
-                  value={settingdata.popup_bar}
-                  checked={settingdata.popup_bar}
-                  onChange={handleChange}
-                />
+                <div className="popup_bar">
+                  <label htmlFor="popup_bar">Show Popup Bar</label>
+                  <input
+                    type="checkbox"
+                    name="popup_bar"
+                    id="popup_bar"
+                    value={settingdata.popup_bar}
+                    checked={settingdata.popup_bar}
+                    onChange={handleChange}
+                  />
 
-              </div>
-              
-              <div>
-                <label htmlFor="cart_btn">Show Add to Cart Button</label>
-                <input
-                  type="checkbox"
-                  name="cart_btn"
-                  id="cart_btn"
-                  value={settingdata.cart_btn}
-                  checked={settingdata.cart_btn}
-                  onChange={handleChange}
-                />
-              </div>
+                </div>
+
+                <div>
+                  <label htmlFor="cart_btn">Show Add to Cart Button</label>
+                  <input
+                    type="checkbox"
+                    name="cart_btn"
+                    id="cart_btn"
+                    value={settingdata.cart_btn}
+                    checked={settingdata.cart_btn}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
@@ -203,38 +234,62 @@ export default function Setting() {
               </div>
               <div className="footer">
                 {settingdata.popup_bar && (
-                  <div id="bar" style={{ backgroundColor: "purple" }}>
+                  <div id="bar" style={{ backgroundColor: "#2E2E2E" }}>
+
                     {settingdata.logo ? (
 
-                      <img src="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=80" />
+                      <img src="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=50" />
                     ) : (
                       ""
                     )}
-                    <div>
-                      {settingdata.product_name ? (
-                        <h2 id="productname">Product Name</h2>
+                    {settingdata.product_name ? (
+                      <h2 id="productname" style={{ color:"#fff"}}>Martini Stud Earrings<br /> 1.65
+
+                        CT.TW</h2>
+                    ) : (
+                      ""
+                    )}
+
+                    <div className="proquantity">
+                      {settingdata.quantity ? (
+                        <div class="rg-sticky-cart-bar-main-select-div">
+                          <div class="rg-sticky-cart-bar-quantity-div">
+                            <select id="quantity" name="quantity" class="select-arrow-design quantity">
+                              <option value="1" selected>1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                        </div>
                       ) : (
                         ""
                       )}
                     </div>
                     <div className="proquantity">
-                      {settingdata.quantity ? (
-                        <div>
-                          <h2>Quantity</h2>
+                      {settingdata.variant1 ? (
+                        <div class="rg-sticky-cart-bar-main-select-div">
+                          <div class="rg-sticky-cart-bar-color-div">
+                            <select id="color" name="color" class="rg-sticky-cart-bar-select-arrow-design color">
+                              <option value="silver" selected>Silver</option>
+                              <option value="gold">Gold</option>
+                            </select>
+                          </div>
                         </div>
                       ) : (
                         ""
                       )}
-                      {settingdata.quantity ? (
-                        <div>
-                          <input
-                            className="numberstyle"
-                            type="number"
-                            id="quantity"
-                            value="1"
-                            disabled
-                          />
-                          <h2 id="quantity"></h2>
+                    </div>
+                    <div className="proquantity">
+                      {settingdata.variant2 ? (
+                        <div class="rg-sticky-cart-bar-main-select-div">
+                          <div class="rg-sticky-cart-bar-size-div">
+                            <select id="size" name="size" class="select-arrow-design size">
+                              <option value="s">S</option>
+                              <option value="m" selected>M</option>
+                              <option value="l">L</option>
+                            </select>
+                          </div>
                         </div>
                       ) : (
                         ""
@@ -242,11 +297,10 @@ export default function Setting() {
                     </div>
                     {settingdata.price ? (
                       <div className="proprice">
-                        <div>
-                          <h2 className="pricetitle">Price</h2>
-                        </div>
-                        <div>
-                          <h2 id="Price">&nbsp; $87</h2>
+                        <div class="rg-sticky-cart-bar-main-price-button-div">
+
+                          <div class="rg-sticky-cart-bar-price-div">$200</div>
+
                         </div>
                       </div>
                     ) : (
@@ -254,9 +308,10 @@ export default function Setting() {
                     )}
                     <div>
                       {settingdata.cart_btn ? (
-                        <button className="cartbtn" type="submit">
-                          Add to cart
-                        </button>
+                        <div class="rg-sticky-cart-bar-main-price-button-div">
+
+                          <div class="rg-sticky-cart-bar-button-div"><button class="rg-sticky-cart-bar-buy-now">Buy Now</button></div>
+                        </div>
                       ) : (
                         ""
                       )}
