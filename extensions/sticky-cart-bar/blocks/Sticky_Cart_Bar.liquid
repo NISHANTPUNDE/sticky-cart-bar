@@ -155,6 +155,7 @@
 
   function selected(selectedNumber=1){
   var price = parseFloat('{{ product.price | money_without_currency  }}');
+  console.log("aaaaa", price)
     var totalPrice = price * selectedNumber;
     console.log("price",totalPrice);
     var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
