@@ -3,7 +3,7 @@
 client_id = "bc527e1f585fa6993480451b1ba7ff8a"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-6"
-application_url = "https://initial-cs-auction-debt.trycloudflare.com"
+application_url = "https://mouth-guide-aerospace-sf.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://initial-cs-auction-debt.trycloudflare.com/auth/callback",
-  "https://initial-cs-auction-debt.trycloudflare.com/auth/shopify/callback",
-  "https://initial-cs-auction-debt.trycloudflare.com/api/auth/callback"
+  "https://mouth-guide-aerospace-sf.trycloudflare.com/auth/callback",
+  "https://mouth-guide-aerospace-sf.trycloudflare.com/auth/shopify/callback",
+  "https://mouth-guide-aerospace-sf.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
