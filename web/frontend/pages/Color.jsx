@@ -159,7 +159,7 @@ export default function Color() {
                     <div class="rg-sticky-cart-bar-main-price-button-div">
                       <div class="rg-sticky-cart-bar-price-div">$200</div>
                     </div>
-                    <div class="rg-sticky-cart-bar-main-price-button-div"> <div class="rg-sticky-cart-bar-button-div"><button class="rg-sticky-cart-bar-buy-now" style={{color: `${Color ? Color : textvalue}`}} >Buy Now</button></div>
+                    <div class="rg-sticky-cart-bar-main-price-button-div"> <div class="rg-sticky-cart-bar-button-div"><button class="rg-sticky-cart-bar-buy-now"  >Buy Now</button></div>
                     </div>
                   </div>
                 </div>

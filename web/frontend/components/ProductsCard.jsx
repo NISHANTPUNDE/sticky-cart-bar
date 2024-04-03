@@ -131,7 +131,7 @@ export function ProductsCard() {
       <div style={{ height: "60vh", overflowY: "auto" }}>
         <DataTable
           columnContentTypes={["text", "text", "text", "text", "text",]}
-          headings={["Checkbox", "Images", "Product", "Price", "Status"]}
+          headings={["Select", "Image", "Product", "Price", "Status"]}
           rows={rows}
           stickyHeader
         />
