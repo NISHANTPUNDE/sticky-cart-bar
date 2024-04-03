@@ -147,8 +147,8 @@
   document.addEventListener('DOMContentLoaded', function() {
     var productid = '{{ product.id }}'; 
     console.log("product", productid);
-    if (!productid || productid === '') {
-        document.getElementById('add-cart-id').style.display = 'none';
+    if (!productid || productid === '' ||  typeof(productid) === "undefined" || productid=="" || productid==null) {
+        document.getElementById('pnotibarbtn').style.display = 'none';
     }
 });
 
