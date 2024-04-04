@@ -28,7 +28,7 @@
         <div class="rg-sticky-cart-bar-main-select-div">
             <div class="rg-sticky-cart-bar-quantity-div svquantity">
               <select class="form-control round sel1" id="svquantity" onchange="selected(1)">
-                <option value="1">1</option>
+                <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -89,9 +89,10 @@
 });
 
 
-  function selected(selectedNumber=1){
+  function selected(selectedNumber){
+  var  selected = selectedNumber || 1;
   var price = parseFloat('{{ product.price | money_without_currency  }}');
-    var totalPrice = price * selectedNumber;
+    var totalPrice = price * selected;
     console.log("price",totalPrice);
     var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
     console.log("curr",currency[0])
@@ -149,17 +150,20 @@ document.addEventListener('click', function() {
   });
  
   
+
   
-
-
+  
+  
+    
   async function cartChange() {
-  const productId = key;
-  console.log("q",productId);
-   var quantityInput = document.getElementById("svquantity");
-  var quantityValue = quantityInput.value;
+    const productId = key || "{{ product.variants[0].id }}";
+    console.log("Keyie:", key);
+  let quantityInput = document.getElementById("svquantity");
+  let quantityValue = quantityInput.value;
 
-    console.log("a",quantityValue);
-  
+    console.log("q",productId);
+    console.log("ab",quantityValue);
+    
    const data = {
     items: [
         {
@@ -183,7 +187,7 @@ document.addEventListener('click', function() {
     if(response.ok)
     {
       console.log(data)
-      window.location.href = "/cart";
+       window.location.href = "/cart";
     }
     else
     {
