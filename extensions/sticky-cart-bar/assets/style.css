@@ -1053,7 +1053,7 @@ button.rg-sticky-cart-bar-buy-now {
 
     select {
         font-size: 14px;
-        padding: 5px 20px 5px 5px;
+        padding: 5px 15px 5px 5px;
         background-position: right 5px center;
       
     }
@@ -1071,6 +1071,7 @@ button.rg-sticky-cart-bar-buy-now {
         font-size: 11px;
         letter-spacing: 1.02px;
         padding: 5px 10px;
+        width: 70px;
     }
 }
 @media screen  and (max-width: 320px) {
