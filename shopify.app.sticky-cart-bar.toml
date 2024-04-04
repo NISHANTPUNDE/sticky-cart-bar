@@ -3,7 +3,7 @@
 client_id = "bc527e1f585fa6993480451b1ba7ff8a"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-6"
-application_url = "https://claims-tv-california-survivor.trycloudflare.com"
+application_url = "https://retro-expert-list-garbage.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://claims-tv-california-survivor.trycloudflare.com/auth/callback",
-  "https://claims-tv-california-survivor.trycloudflare.com/auth/shopify/callback",
-  "https://claims-tv-california-survivor.trycloudflare.com/api/auth/callback"
+  "https://retro-expert-list-garbage.trycloudflare.com/auth/callback",
+  "https://retro-expert-list-garbage.trycloudflare.com/auth/shopify/callback",
+  "https://retro-expert-list-garbage.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

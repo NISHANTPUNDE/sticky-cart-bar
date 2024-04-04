@@ -96,7 +96,7 @@
     var currency = "{{ product.price | money_with_currency | split: ' ' | first }}";
     console.log("curr",currency[0])
 
-    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice.toFixed(2);
+    document.getElementById('svprice').textContent = currency[0]+' '+totalPrice.toFixed(1);
     
       }
       selected();
