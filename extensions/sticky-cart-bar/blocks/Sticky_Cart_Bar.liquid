@@ -99,7 +99,7 @@
     document.getElementById('svprice').textContent = currency[0]+' '+totalPrice.toFixed(1);
     
       }
-      selected();
+      selected(1);
       document.getElementById('svquantity').addEventListener('change', function(){
         selected(this.value);
         console.log(selected(this.value))
