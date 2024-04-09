@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "fd0a4ff5f240ff1d529a1ef467807cfa"
-name = "Sticky-cart-bar"
-handle = "sticky-cart-bar-7"
-application_url = "https://move-strings-today-assembled.trycloudflare.com"
+client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
+name = "Sticky_Cart_Bar"
+handle = "sticky_cart_bar-1"
+application_url = "https://struct-session-touch-dean.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "storeapp-dev.myshopify.com"
+dev_store_url = "sticky-cart-bar.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -17,13 +17,18 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://move-strings-today-assembled.trycloudflare.com/auth/callback",
-  "https://move-strings-today-assembled.trycloudflare.com/auth/shopify/callback",
-  "https://move-strings-today-assembled.trycloudflare.com/api/auth/callback"
+  "https://struct-session-touch-dean.trycloudflare.com/auth/callback",
+  "https://struct-session-touch-dean.trycloudflare.com/auth/shopify/callback",
+  "https://struct-session-touch-dean.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
-api_version = "2024-04"
+api_version = "2024-01"
+
+  [webhooks.privacy_compliance]
+  customer_deletion_url = "https://whale-app-x8ulu.ondigitalocean.app/"
+  customer_data_request_url = "https://whale-app-x8ulu.ondigitalocean.app/"
+  shop_deletion_url = "https://whale-app-x8ulu.ondigitalocean.app/"
 
 [pos]
 embedded = false
