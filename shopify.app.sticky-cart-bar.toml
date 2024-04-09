@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://architectural-welding-observation-industrial.trycloudflare.com/auth/callback",
-  "https://architectural-welding-observation-industrial.trycloudflare.com/auth/shopify/callback",
-  "https://architectural-welding-observation-industrial.trycloudflare.com/api/auth/callback"
+  "https://monkfish-app-nobix.ondigitalocean.app/auth/callback",
+  "https://monkfish-app-nobix.ondigitalocean.app/auth/shopify/callback",
+  "https://monkfish-app-nobix.ondigitalocean.app/api/auth/callback"
 ]
 
 [webhooks]
