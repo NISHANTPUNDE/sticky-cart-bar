@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "bc527e1f585fa6993480451b1ba7ff8a"
-name = "Sticky_Cart_Bar"
-handle = "sticky_cart_bar-6"
-application_url = "https://weights-pilot-durable-desirable.trycloudflare.com"
+client_id = "fd0a4ff5f240ff1d529a1ef467807cfa"
+name = "Sticky-cart-bar"
+handle = "sticky-cart-bar-7"
+application_url = "https://move-strings-today-assembled.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "sticky-cart-bar.myshopify.com"
+dev_store_url = "storeapp-dev.myshopify.com"
 include_config_on_deploy = true
 
 [access_scopes]
@@ -17,13 +17,13 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://weights-pilot-durable-desirable.trycloudflare.com/auth/callback",
-  "https://weights-pilot-durable-desirable.trycloudflare.com/auth/shopify/callback",
-  "https://weights-pilot-durable-desirable.trycloudflare.com/api/auth/callback"
+  "https://move-strings-today-assembled.trycloudflare.com/auth/callback",
+  "https://move-strings-today-assembled.trycloudflare.com/auth/shopify/callback",
+  "https://move-strings-today-assembled.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
-api_version = "2024-01"
+api_version = "2024-04"
 
 [pos]
 embedded = false
