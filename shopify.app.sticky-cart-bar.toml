@@ -26,9 +26,9 @@ redirect_urls = [
 api_version = "2024-01"
 
   [webhooks.privacy_compliance]
-  customer_deletion_url = "https://whale-app-x8ulu.ondigitalocean.app/"
-  customer_data_request_url = "https://whale-app-x8ulu.ondigitalocean.app/"
-  shop_deletion_url = "https://whale-app-x8ulu.ondigitalocean.app/"
+  customer_deletion_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
+  customer_data_request_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
+  shop_deletion_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
 
 [pos]
 embedded = false
