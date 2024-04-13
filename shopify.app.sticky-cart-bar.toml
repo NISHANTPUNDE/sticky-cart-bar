@@ -3,7 +3,7 @@
 client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-1"
-application_url = "https://generating-passport-del-trial.trycloudflare.com"
+application_url = "https://shall-optional-eos-disks.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://generating-passport-del-trial.trycloudflare.com/auth/callback",
-  "https://generating-passport-del-trial.trycloudflare.com/auth/shopify/callback",
-  "https://generating-passport-del-trial.trycloudflare.com/api/auth/callback"
+  "https://shall-optional-eos-disks.trycloudflare.com/auth/callback",
+  "https://shall-optional-eos-disks.trycloudflare.com/auth/shopify/callback",
+  "https://shall-optional-eos-disks.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
