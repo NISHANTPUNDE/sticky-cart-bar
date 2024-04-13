@@ -17,18 +17,18 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://shall-optional-eos-disks.trycloudflare.com/auth/callback",
-  "https://shall-optional-eos-disks.trycloudflare.com/auth/shopify/callback",
-  "https://shall-optional-eos-disks.trycloudflare.com/api/auth/callback"
+  "https://walrus-app-2gy22.ondigitalocean.app/auth/callback",
+  "https://walrus-app-2gy22.ondigitalocean.app/auth/shopify/callback",
+  "hhttps://walrus-app-2gy22.ondigitalocean.app/api/auth/callback"
 ]
 
 [webhooks]
 api_version = "2024-01"
 
   [webhooks.privacy_compliance]
-  customer_deletion_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
-  customer_data_request_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
-  shop_deletion_url = "https://monkfish-app-nobix.ondigitalocean.app/api/webhooks"
+  customer_deletion_url = "https://walrus-app-2gy22.ondigitalocean.app/api/webhooks"
+  customer_data_request_url = "https://walrus-app-2gy22.ondigitalocean.app/api/webhooks"
+  shop_deletion_url = "https://walrus-app-2gy22.ondigitalocean.app/api/webhooks"
 
 [pos]
 embedded = false

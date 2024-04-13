@@ -3,7 +3,7 @@
 client_id = "71ad53ed84e45184e99595d517158444"
 name = "Sticky-Cart-Bar"
 handle = "sticky-cart-bar-1"
-application_url = "https://spyware-adware-vsnet-explained.trycloudflare.com"
+application_url = "https://walrus-app-2gy22.ondigitalocean.app"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://spyware-adware-vsnet-explained.trycloudflare.com/auth/callback",
-  "https://spyware-adware-vsnet-explained.trycloudflare.com/auth/shopify/callback",
-  "https://spyware-adware-vsnet-explained.trycloudflare.com/api/auth/callback"
+  "https://walrus-app-2gy22.ondigitalocean.app/auth/callback",
+  "https://walrus-app-2gy22.ondigitalocean.app/auth/shopify/callback",
+  "https://walrus-app-2gy22.ondigitalocean.app/api/auth/callback"
 ]
 
 [webhooks]
