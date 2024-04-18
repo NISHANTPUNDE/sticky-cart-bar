@@ -796,3 +796,37 @@ button.rg-sticky-cart-bar-buy-now {
       padding: 5px 7px;
   }
 }
+.Onboardingpage{
+  height: 80vh;
+  margin: 0px 20px;
+  width: 100%;
+  /* position: relative; */
+  
+}
+.onboardinginside{
+  height: auto;
+  display: flex;
+  padding: 30px;
+}
+.onboardingheading{
+  text-align: center;
+  font-family: emoji;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.onboardingsteups{
+  width: 50%;
+    line-height: 25px;
+    padding: 50px 50px;
+    font-size: 16px;
+    font-family: math;
+    line-height: 30px;
+}
+.onboardingvideo{
+  width: 50%;
+  border-radius: 5px;
+  /* padding: 0px 20%; */
+  margin-top: 15%;
+  /* position: absolute; */
+}
