@@ -3,7 +3,7 @@
 client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-1"
-application_url = "https://reload-apps-composed-encoding.trycloudflare.com"
+application_url = "https://scientists-naturally-acm-brand.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://reload-apps-composed-encoding.trycloudflare.com/auth/callback",
-  "https://reload-apps-composed-encoding.trycloudflare.com/auth/shopify/callback",
-  "https://reload-apps-composed-encoding.trycloudflare.com/api/auth/callback"
+  "https://scientists-naturally-acm-brand.trycloudflare.com/auth/callback",
+  "https://scientists-naturally-acm-brand.trycloudflare.com/auth/shopify/callback",
+  "https://scientists-naturally-acm-brand.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
