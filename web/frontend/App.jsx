@@ -24,7 +24,7 @@ export default function App() {
             <NavigationMenu
               navigationLinks={[
                 {
-                  label: t("NavigationMenu.pageName"),
+                  label: t("Onboarding"),
                   destination: "/pagename",
                 },
               ]}
