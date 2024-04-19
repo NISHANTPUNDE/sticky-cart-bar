@@ -810,23 +810,47 @@ button.rg-sticky-cart-bar-buy-now {
 }
 .onboardingheading{
   text-align: center;
-  font-family: emoji;
+  /* font-family: emoji;
     font-weight: bold;
-    font-size: 25px;
-
+    font-size: 25px; */
+    padding: 20px;
+    margin: 15px;
 }
 .onboardingsteups{
-  width: 50%;
+  width: 100%;
     line-height: 25px;
-    padding: 50px 50px;
-    font-size: 16px;
+    padding: 10px 50px;
+    font-size: 20px;
     font-family: math;
     line-height: 30px;
 }
+.onboardingsteups h3{
+  font-size: 25px;
+  text-align: center;
+}
 .onboardingvideo{
-  width: 50%;
+  width: 100%;
   border-radius: 5px;
+  padding: 30px;
+  height: 375px;
+  justify-content: center;
+  position: relative;
+  /* border: #FF7810 solid 1px; */
   /* padding: 0px 20%; */
-  margin-top: 15%;
+  /* margin-top: 15%; */
   /* position: absolute; */
+}
+.video{
+  position: absolute;
+  align-items: center;
+  border: #FF7810 solid 7px;
+  border-radius: 10px;
+  /* right: 5%;
+  left: 5%; */
+  /* margin: 0% 40%; */
+  /* left: 20%; */
+  
+}
+iframe{
+  width: 90%;
 }
