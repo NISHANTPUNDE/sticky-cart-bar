@@ -3,7 +3,7 @@
 client_id = "f83f18f42228f0ddffb9066f498469c5"
 name = "Sticky-bar"
 handle = "sticky-bar-7"
-application_url = "https://letters-click-park-uploaded.trycloudflare.com"
+application_url = "https://assembly-routers-sells-manor.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://letters-click-park-uploaded.trycloudflare.com/auth/callback",
-  "https://letters-click-park-uploaded.trycloudflare.com/auth/shopify/callback",
-  "https://letters-click-park-uploaded.trycloudflare.com/api/auth/callback"
+  "https://assembly-routers-sells-manor.trycloudflare.com/auth/callback",
+  "https://assembly-routers-sells-manor.trycloudflare.com/auth/shopify/callback",
+  "https://assembly-routers-sells-manor.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

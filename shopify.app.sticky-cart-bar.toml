@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "71ad53ed84e45184e99595d517158444"
+name = "Sticky-Cart-Bar"
+handle = "sticky-cart-bar-1"
+application_url = "https://started-marketplace-fda-arab.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "themedemo201.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_orders,read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://started-marketplace-fda-arab.trycloudflare.com/auth/callback",
+  "https://started-marketplace-fda-arab.trycloudflare.com/auth/shopify/callback",
+  "https://started-marketplace-fda-arab.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
