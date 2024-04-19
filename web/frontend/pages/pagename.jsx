@@ -51,39 +51,40 @@ export default function PageName() {
     // </Page>
     <>
       <div className='Onboardingpage'>
-        <Card >
-          <div style={{ paddingTop: '30px' }}>
-            <div className='onboardingheading'>
+        <Card>
+          {/* <div className='onboardingheading'>
               <h1><b>Setup Your App</b></h1>
-            </div>
-            <div className='onboardinginside' >
+            </div> */}
+          <h3 class="Polaris-Text--root Polaris-Text--heading2xl onboardingheading">Enable app embed</h3>
+        </Card>
 
-              <div className="onboardingsteups">
-                <ol style={{ listStyleType: 'square'}}>
-                  <p style={{ fontSize:"20px", fontFamily:'math'}}><b><u>Enable app embed</u></b><br></br>
-                    App embed is required for reviews to show properly .<br></br>
-                    Just follow these easy steps:</p>
-                    <li>Customize your store's look in Customizer.</li>
-                    <li>Head to the Product Page section.</li>
-                    <li>Improve user experience by accessing Footer Options.</li>
-                    <li>Effortlessly add our app through a Block.</li>
-                    <li>Explore the "App" Extension for enhanced features</li>
-                    <li>Choose the "Sticky Cart Bar" for constant visibility.</li>
-                    <li>Save Changes to apply them instantly.</li>
-                    <li>Fine-tune settings in the App Customizer.</li>
-                    <li>Make targeted adjustments on the Product Page.</li>
-                    <li>Activate the app for its full potential.</li>
-                    <li>Enjoy the smooth review display on your screen</li>
+        <Card>
+          <div className="onboardingsteups">
+            <ol style={{ listStyleType: 'square', listStyle:'none' }}>
+              <p style={{ fontSize: "20px", fontFamily: 'math', textAlign:'center' }}>
+                App embed is required for reviews to show properly .<br></br>
+                Just follow these easy steps:</p><br></br>
+              <li> &#128073; Improve user experience by accessing Footer Options.</li>
+              <li> &#128073; Effortlessly add our app through a Block.</li>
+              <li> &#128073; Explore the "App" Extension for enhanced features</li>
+              <li> &#128073; Choose the "Sticky Cart Bar" for constant visibility.</li>
+              <li> &#128073; Save Changes to apply them instantly.</li>
+              <li> &#128073; Fine-tune settings in the App Customizer.</li>
+              <li> &#128073; Make targeted adjustments on the Product Page.</li>
+              <li> &#128073; Activate the app for its full potential.</li>
+              <li> &#128073; Enjoy the smooth review display on your screen</li>
 
-                  </ol>
-                  </div>
-                  <div className="onboardingvideo">
-                    <iframe width="500" height="315" src="https://www.youtube.com/embed/VVMaLbrsBuo?si=Og3NjCUGn40-Y44k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
+            </ol>
+          </div>
+          {/* <div className='onboardinginside'>
+            
+          </div> */}
+        </Card>
 
-
-              </div>
-            </div>
+        <Card >
+          <div className="onboardingvideo">
+            <iframe height="315" className="video" src="https://www.youtube.com/embed/VVMaLbrsBuo?si=Og3NjCUGn40-Y44k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </Card>
       </div>
     </>
