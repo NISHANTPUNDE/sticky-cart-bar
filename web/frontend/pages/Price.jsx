@@ -1,5 +1,5 @@
 import React from 'react'
-import {loadStripe} from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useState, useEffect } from 'react';
 
 export default function Price() {
@@ -22,7 +22,7 @@ export default function Price() {
     useEffect(() => {
         console.log("Updated products:", products);
     }, [products]);
-    
+
     const makePayment = async (planName, price) => {
         console.log("plan", planName);
         console.log("price", price);
@@ -56,10 +56,10 @@ export default function Price() {
         const result = stripe.redirectToCheckout({
             sessionId: session.id
         });
-        
+
         if (result.error) {
             console.log(result.error);
-        } 
+        }
     }
 
     return (
@@ -68,35 +68,39 @@ export default function Price() {
                 <div className="priceheading">
                     <h1>Pricing Plan's</h1>
                 </div>
-                <div style={{ display:'flex', top: '15%', position: 'absolute' }}>
+                <div style={{ display: 'flex', top: '15%', position: 'absolute' }}>
                     <div className="subscription-card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
-                            <h2 style={{ fontSize:"20px"}}><b>Free Trail</b></h2><br/>
-                            <p>Get access for 7 days ,<br/> Activate or Deactivate Discount,<br/>  Easily Customaizable Sticky cart bar Color and many more</p><br/>
+                            <h2 style={{ fontSize: "20px" }}><b>Free Trail</b></h2><br />
+                            <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $0.00</strong></p>
                         </div>
-                        <button className="subscribe-button"  onClick={() => makePayment("Free Trail", 0)}>Get Started</button>
+                        <button className="subscribe-button" onClick={() => makePayment("Free Trail", 0)}>Get Started</button>
                     </div>
 
                     <div className="subscription-card middle-card" >
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
-                            <h2 style={{ fontSize:"20px"}}><b>Monthly Subscription</b></h2><br/>
-                            <p>Get access for 7 days ,<br/> Activate or Deactivate Discount,<br/>  Easily Customaizable Sticky cart bar Color and many more</p><br/>
+                            <h2 style={{ fontSize: "20px" }}><b>Monthly Subscription</b></h2><br />
+                            <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $3 /M</strong></p>
                         </div>
-                        <button className="subscribe-button" onClick={() => makePayment("Monthly Subscription", 3)}>Subscribe Now</button>
+                        {/* <button className="subscribe-button" onClick={() => makePayment("Monthly Subscription", 3)}>Subscribe Now</button> */}
+                        <button className="subscribe-button" >Subscribe Now</button>
+
                     </div>
 
                     <div className="subscription-card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
-                            <h2 style={{ fontSize:"20px"}}><b>Yearly Subscription</b></h2><br/>
-                            <p>Get access for 7 days ,<br/> Activate or Deactivate Discount,<br/>  Easily Customaizable Sticky cart bar Color and many more</p><br/>
+                            <h2 style={{ fontSize: "20px" }}><b>Yearly Subscription</b></h2><br />
+                            <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $25 /Y</strong></p>
                         </div>
-                        <button className="subscribe-button" onClick={() => makePayment("Yearly Subscription", 25)}>Subscribe Now</button>
+                        {/* <button className="subscribe-button" onClick={() => makePayment("Yearly Subscription", 25)}>Subscribe Now</button> */}
+
+                        <button className="subscribe-button">Subscribe Now</button>
                     </div>
                 </div>
             </div>
