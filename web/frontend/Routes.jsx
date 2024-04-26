@@ -57,7 +57,7 @@ function useRoutes(pages) {
       if (!pages[key].default) {
         console.warn(`${key} doesn't export a default React component`);
       }
-
+//hfhg
       return {
         path,
         component: pages[key].default,
