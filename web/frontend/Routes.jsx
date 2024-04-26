@@ -39,7 +39,7 @@ function useRoutes(pages) {
         /**
          * Replace /index with /
          */
-        .replace(/\/index$/i, "/")
+        .replace(/\/Price$/i, "/")
         /**
          * Only lowercase the first letter. This allows the developer to use camelCase
          * dynamic paths while ensuring their standard routes are normalized to lowercase.

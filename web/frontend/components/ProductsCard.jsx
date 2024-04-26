@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { DataTable,Card } from "@shopify/polaris";
 import { useAuthenticatedFetch } from "../hooks";
 import axios from "axios";
+import { FaVolumeHigh } from "react-icons/fa6";
 export function ProductsCard() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ export function ProductsCard() {
       console.error(error);
     }
   }
-
+console.log("pro",products)
   const handleCheckboxChange = (index) => {
     const newSelectedItems = [...selectedItems];
     if (newSelectedItems.includes(index)) {

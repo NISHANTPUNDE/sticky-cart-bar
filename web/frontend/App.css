@@ -854,3 +854,68 @@ button.rg-sticky-cart-bar-buy-now {
 iframe{
   width: 90%;
 }
+
+/* **********priceing page *********** */
+body {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; */
+}
+.subscription-card {
+  width: 300px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  /* position: absolute;
+
+    top: 30%; */
+    margin: 0px 10px;
+}
+
+.youtube-logo {
+  width: 100px; 
+  margin-bottom: 20px;
+}
+
+.subscription-details {
+  margin-bottom: 20px;
+}
+
+.subscribe-button {
+  background-color: #ff0000; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #cc0000; 
+}
+.priceheading{
+  text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: math;
+    margin: 30px 00px 30px 0px;
+}
+
+.subscription-card {
+  transition: 0.3s;
+}
+.subscription-card:hover {
+  transform: translate(0, -30px);
+  background-color: #000;
+  color: white;
+}
+.middle-card{
+  height: 400px;
+
+}

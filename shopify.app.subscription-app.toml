@@ -1,9 +1,9 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "f83f18f42228f0ddffb9066f498469c5"
-name = "Sticky-bar"
-handle = "sticky-bar-7"
-application_url = "https://defined-toddler-regularly-incentives.trycloudflare.com"
+client_id = "df80c5f38fd99dab5e78fa296c50a38d"
+name = "subscription-app"
+handle = "subscription-app-142"
+application_url = "https://dna-chocolate-wendy-heather.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://defined-toddler-regularly-incentives.trycloudflare.com/auth/callback",
-  "https://defined-toddler-regularly-incentives.trycloudflare.com/auth/shopify/callback",
-  "https://defined-toddler-regularly-incentives.trycloudflare.com/api/auth/callback"
+  "https://dna-chocolate-wendy-heather.trycloudflare.com/auth/callback",
+  "https://dna-chocolate-wendy-heather.trycloudflare.com/auth/shopify/callback",
+  "https://dna-chocolate-wendy-heather.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

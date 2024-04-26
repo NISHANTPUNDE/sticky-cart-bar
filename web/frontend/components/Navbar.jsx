@@ -9,8 +9,13 @@ export function Navbar() {
   return (
     <div>
       <ul className="list-style">
-        <li>
+      <li>
           <NavLink to={"/"}>
+            {/* <GrProductHunt/> */}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/index"}>
             <GrProductHunt/>
           </NavLink>
         </li>
