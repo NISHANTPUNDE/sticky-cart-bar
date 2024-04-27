@@ -15,7 +15,7 @@ export function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/index"}>
+          <NavLink to={"/"}>
             <GrProductHunt/>
           </NavLink>
         </li>
