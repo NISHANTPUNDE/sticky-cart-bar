@@ -33,7 +33,8 @@
     "react-icons": "^5.0.1",
     "react-query": "^3.34.19",
     "react-router-dom": "^6.22.3",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "@stripe/stripe-js": "^3.3.0"
   },
   "devDependencies": {
     "@shopify/stylelint-polaris": "^12.0.0",
