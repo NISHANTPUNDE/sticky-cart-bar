@@ -27,6 +27,10 @@ export default function App() {
                   label: t("Onboarding"),
                   destination: "/pagename",
                 },
+                {
+                  label: t("Priceing"),
+                  destination: "/Price",
+                },
               ]}
             />
             <div className="section">

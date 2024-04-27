@@ -3,7 +3,7 @@
 client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-1"
-application_url = "https://coastal-blogging-longest-grounds.trycloudflare.com"
+application_url = "https://suspended-suzuki-manhattan-random.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://coastal-blogging-longest-grounds.trycloudflare.com/auth/callback",
-  "https://coastal-blogging-longest-grounds.trycloudflare.com/auth/shopify/callback",
-  "https://coastal-blogging-longest-grounds.trycloudflare.com/api/auth/callback"
+  "https://suspended-suzuki-manhattan-random.trycloudflare.com/auth/callback",
+  "https://suspended-suzuki-manhattan-random.trycloudflare.com/auth/shopify/callback",
+  "https://suspended-suzuki-manhattan-random.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
