@@ -28,7 +28,7 @@ export default function App() {
                   destination: "/pagename",
                 },
                 {
-                  label: t("Priceing"),
+                  label: t("Pricing"),
                   destination: "/Price",
                 },
               ]}
