@@ -14,8 +14,7 @@
   "dependencies": {
     "@shopify/app": "^3.58.2",
     "@shopify/cli": "^3.58.2",
-    "cors": "^2.8.5",
-    "stripe": "^15.4.0"
+    "cors": "^2.8.5"
   },
   "author": "punde",
   "private": true,

@@ -7,9 +7,7 @@ import serveStatic from "serve-static";
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
 import PrivacyWebhookHandlers from "./privacy.js";
-import stripe from "stripe";
 
-const stripeSecretKey = "sk_test_51P9hepSIHgPasW2iZWr9dDZM6dh34a8e4Ek7aEwei6eeChGOMS4stOGIVKiAtoj6jQETIsjGYas3UkxnkhEng3nO00lh2YNHI2";
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
   10
@@ -82,33 +80,7 @@ app.get('/api/shop',async (_req, res)=>{
 
 // payment mathod
 // checkout api
-app.post("/api/create-checkout-session",async(req,res)=>{
-  const {products} = req.body;
 
-
-  const lineItems = products.map((product)=>({
-      price_data:{
-          currency:"inr",
-          product_data:{
-              name:product.dish,
-              images:[product.imgdata]
-          },
-          unit_amount:product.price * 100,
-      },
-      quantity:1
-  }));
-  console.log(lineItems)
-  const session = await stripe.checkout.sessions.create({
-      payment_method_types:["card"],
-      line_items:lineItems,
-      mode:"payment",
-      success_url:"http://localhost:3000/sucess",
-      cancel_url:"http://localhost:3000/cancel",
-  });
-
-  res.json({id:session.id})
-
-})
 
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, { index: false }));
