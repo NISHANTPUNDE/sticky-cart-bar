@@ -83,8 +83,10 @@ export default function PageName() {
 
         <Card >
           <div className="onboardingvideo">
-            <iframe height="315" className="video" src="https://www.youtube.com/embed/VVMaLbrsBuo?si=Og3NjCUGn40-Y44k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            {/* <iframe height="315" className="video" src="https://www.youtube.com/embed/VVMaLbrsBuo?si=Og3NjCUGn40-Y44k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+            <iframe  height="315" className="video" src="https://www.youtube.com/embed/W3dmeq_ln9A?si=kroN9prktRd2WIwt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
+         
         </Card>
       </div>
     </>

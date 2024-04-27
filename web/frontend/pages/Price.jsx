@@ -2,6 +2,7 @@ import React from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 import { useState, useEffect } from 'react';
 
+
 export default function Price() {
 
     const [products, setProducts] = useState([
@@ -70,7 +71,7 @@ export default function Price() {
                 </div>
                 <div style={{ display: 'flex', top: '15%', position: 'absolute' }}>
                     <div className="subscription-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
+                        <img src="https://cdn.shopify.com/s/files/1/0644/5845/7264/files/free-trial.png?v=1714194908" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
                             <h2 style={{ fontSize: "20px" }}><b>Free Trail</b></h2><br />
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
@@ -80,7 +81,7 @@ export default function Price() {
                     </div>
 
                     <div className="subscription-card middle-card" >
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
+                        <img src="https://cdn.shopify.com/s/files/1/0644/5845/7264/files/subscription-model.png?v=1714194908" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
                             <h2 style={{ fontSize: "20px" }}><b>Monthly Subscription</b></h2><br />
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
@@ -92,7 +93,7 @@ export default function Price() {
                     </div>
 
                     <div className="subscription-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="YouTube Logo" className="youtube-logo" />
+                        <img src="https://cdn.shopify.com/s/files/1/0644/5845/7264/files/annualy-subscription.png?v=1714194908" alt="YouTube Logo" className="youtube-logo" />
                         <div className="subscription-details">
                             <h2 style={{ fontSize: "20px" }}><b>Yearly Subscription</b></h2><br />
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
