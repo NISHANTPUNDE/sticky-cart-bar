@@ -1,67 +1,53 @@
 import React from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 import { useState, useEffect } from 'react';
-
-
+import { useNavigate } from 'react-router-dom';
+import { useAuthenticatedFetch } from '../hooks';
 export default function Price() {
-
-    const [products, setProducts] = useState([
-        {
-            address: "Pizza, Fast Food, Pasta",
-            arrimg: "https://b.zmtcdn.com/data/o2_assets/4bf016f32f05d26242cea342f30d47a31595763089.png?output-format=webp",
-            delimg: "https://b.zmtcdn.com/data/o2_assets/0b07ef18234c6fdf9365ad1c274ae0631612687510.png?output-format=webp",
-            dish: "",
-            id: 3,
-            imgdata: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png",
-            price: '',
-            qnty: 1,
-            rating: "4.2",
-            somedata: " 650 + order placed from here recently"
-        }
-    ]);
-
+    let Authfetch=useAuthenticatedFetch();
+    let navigate = useNavigate();
+    const stripe = loadStripe("pk_test_51P9hepSIHgPasW2iCmMqqOqxfNUPbZl2D31Pi5DoX6WMWn8t8eeOrniJP7W2rV3ykBLd9ue9IlJqjFzvXBH9DdZA00ycomA70b");
+    const [email, setEmail] = useState("");
     useEffect(() => {
-        console.log("Updated products:", products);
-    }, [products]);
-
-    const makePayment = async (planName, price) => {
-        console.log("plan", planName);
-        console.log("price", price);
-        setProducts(prevProducts => {
-            const updatedProducts = prevProducts.map(product => {
-                return {
-                    ...product,
-                    dish: planName,
-                    price: price
-                };
-            });
-            return updatedProducts;
-        });
-
-        const stripe = await loadStripe("pk_test_51P9hepSIHgPasW2iCmMqqOqxfNUPbZl2D31Pi5DoX6WMWn8t8eeOrniJP7W2rV3ykBLd9ue9IlJqjFzvXBH9DdZA00ycomA70b");
-
-        const body = {
-            product: products
-        };
-        const headers = {
-            "Content-Type": "application/json"
-        };
-        const response = await fetch("http://localhost:7000/api/create-checkout-session", {
+        const shopFetch = async () => {
+            let req = await Authfetch("/api/shop");
+            let res = await req.json();
+            console.log(res.data[0].email);
+            setEmail(res.data[0].email);
+          };
+          shopFetch();
+    }, [])
+    console.log(email)
+    const handleSubscription = async (interval) => {
+        const stripePromise = await loadStripe("pk_test_51P9h0BSGbpwgGS0X0sBP4G3v2nKBA5GHHQujeSOnnw4QPBjZFJhDFEqCXIwLnodJsCD3I1LY1PP04t3AOr8A9Qcd005yXQzhxi");
+        console.log("11",email)
+        const response = await fetch(
+          "http://localhost:3001/create-stripe-session-subscription",
+          {
             method: "POST",
-            headers: headers,
-            body: JSON.stringify(body)
-        });
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(
+              { planname: "monthly plan", qty: "3", itemCode: "99", email:email, interval: interval},
+            ),
+          }
+        );
+    
+        if (response.status === 409) {
+          const data = await response.json();
+          if (data && data.redirectUrl) {
 
-        const session = await response.json();
+            console.log(data.redirectUrl.replace("https://admin.shopify.com/store/dev-demosky/apps/subscription-app-142",""))
 
-        const result = stripe.redirectToCheckout({
-            sessionId: session.id
-        });
-
-        if (result.error) {
-            console.log(result.error);
+            navigate(data.redirectUrl.replace("https://admin.shopify.com/store/dev-demosky/apps/subscription-app-142",""));
+             
+          }
+        } else {
+          const session = await response.json();
+          stripePromise.redirectToCheckout({
+            sessionId: session.id,
+          });
         }
-    }
+      };
 
     return (
         <>
@@ -77,7 +63,7 @@ export default function Price() {
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $0.00</strong></p>
                         </div>
-                        <button className="subscribe-button" onClick={() => makePayment("Free Trail", 0)}>Get Started</button>
+                        <button className="subscribe-button" onClick={() => handleSubscription("trial")}>Start free trial</button>
                     </div>
 
                     <div className="subscription-card middle-card" >
@@ -87,8 +73,8 @@ export default function Price() {
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $3 /M</strong></p>
                         </div>
-                        {/* <button className="subscribe-button" onClick={() => makePayment("Monthly Subscription", 3)}>Subscribe Now</button> */}
-                        <button className="subscribe-button" >Subscribe Now</button>
+                        <button className="subscribe-button" onClick={()=>handleSubscription("month")}>Subscribe Now</button>
+                        {/* <button className="subscribe-button" >Subscribe Now</button> */}
 
                     </div>
 
@@ -99,9 +85,9 @@ export default function Price() {
                             <p>Get access for 7 days ,<br /> Activate or Deactivate Discount,<br />  Easily Customaizable Sticky cart bar Color and many more</p><br />
                             <p><strong>Price: $25 /Y</strong></p>
                         </div>
-                        {/* <button className="subscribe-button" onClick={() => makePayment("Yearly Subscription", 25)}>Subscribe Now</button> */}
+                        <button className="subscribe-button" onClick={()=>handleSubscription("year")}>Subscribe Now</button>
 
-                        <button className="subscribe-button">Subscribe Now</button>
+                        {/* <button className="subscribe-button">Subscribe Now</button> */}
                     </div>
                 </div>
             </div>

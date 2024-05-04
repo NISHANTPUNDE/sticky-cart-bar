@@ -3,7 +3,7 @@
 client_id = "df80c5f38fd99dab5e78fa296c50a38d"
 name = "subscription-app"
 handle = "subscription-app-142"
-application_url = "https://dna-chocolate-wendy-heather.trycloudflare.com"
+application_url = "https://controls-guitars-sorts-designated.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://dna-chocolate-wendy-heather.trycloudflare.com/auth/callback",
-  "https://dna-chocolate-wendy-heather.trycloudflare.com/auth/shopify/callback",
-  "https://dna-chocolate-wendy-heather.trycloudflare.com/api/auth/callback"
+  "https://controls-guitars-sorts-designated.trycloudflare.com/auth/callback",
+  "https://controls-guitars-sorts-designated.trycloudflare.com/auth/shopify/callback",
+  "https://controls-guitars-sorts-designated.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
