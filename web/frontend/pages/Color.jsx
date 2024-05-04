@@ -11,11 +11,7 @@ export default function Color() {
 
   const [shopid, setShopid] = useState();
   const [value, setValue] = useState();
-<<<<<<< HEAD
   const [textvalue, setTextvalue] = useState()
-=======
-  const [textvalue, setTextvalue] = useState();
->>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
   const shopFetch = async () => {
     let req = await fetch("/api/shop");
     let res = await req.json();
@@ -27,10 +23,10 @@ export default function Color() {
         `https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/color/${shopid}`
       )
       .then((res) => {
-        setValue(res.data.data[0]?.bgColor);
-        setTextvalue(res.data.data[0]?.textColor);
-        setbackgroundColor(res.data.data[0]?.bgColor);
-        setColor(res.data.data[0]?.textColor);
+        setValue(res.data.data[0]?.bgColor)
+        setTextvalue(res.data.data[0]?.textColor)
+        setbackgroundColor(res.data.data[0]?.bgColor)
+        setColor(res.data.data[0]?.textColor)
       })
       .catch((err) => console.log(err));
   };
@@ -48,7 +44,7 @@ export default function Color() {
         {
           shopid: shopid,
           bgColor: backgroundColor,
-          textColor: Color,
+          textColor: Color
         }
       )
       .then((res) => {
@@ -68,13 +64,7 @@ export default function Color() {
           <Layout.Section>
             <Card sectioned>
               <div className="flex">
-<<<<<<< HEAD
                 <Text variant="heading2xl" as="h3">Color</Text>
-=======
-                <Text variant="heading2xl" as="h3">
-                  Color
-                </Text>
->>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
               </div>
             </Card>
           </Layout.Section>
@@ -105,16 +95,13 @@ export default function Color() {
                   >
                     Set colors
                   </button>
-<<<<<<< HEAD
 
-=======
->>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
                 </div>
               </div>
             </Card>
           </Layout.Section>
           <Layout.Section>
-            <Card>
+            <Card >
               <div className="container">
                 <div className="color-section">
                   <img
@@ -131,7 +118,7 @@ export default function Color() {
                   </div>
                 </div>
                 <div className="footer">
-                  {/* <div
+                  <div
                     id="bar"
                     style={{
                       backgroundColor: `${backgroundColor ? backgroundColor : value
@@ -174,52 +161,7 @@ export default function Color() {
                     </div>
                     <div class="rg-sticky-cart-bar-main-price-button-div"> <div class="rg-sticky-cart-bar-button-div"><button class="rg-sticky-cart-bar-buy-now"  >Buy Now</button></div>
                     </div>
-                  </div> */}
-                  <section class="add-cart-section" id="add-cart-id">
-                    <div class="container-fluid ">
-                      <div class="box" style={{backgroundColor: `${
-                        backgroundColor ? backgroundColor : value
-                      }`,
-                      color: `${Color ? Color : textvalue}`,}}>
-                        <img
-                          src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
-                          class="earring-img"
-                        />
-                        <h3
-                        style={{ color: `${Color ? Color : textvalue}`}}
-                        >
-                          Martini Stud Earrings 1.65 <br />
-                          CT. TW.
-                        </h3>
-                        <label
-                          for="my-dropdown"
-                          data-toggle="dropdown"
-                          class="label1"
-                          style={{ color: `${Color ? Color : textvalue}`}}
-                        >
-                          3
-                        </label>
-                        <label
-                          for="my-dropdown"
-                          data-toggle="dropdown"
-                          class="label2"
-                          style={{ color: `${Color ? Color : textvalue}`}}
-                        >
-                          Silver
-                        </label>
-                        <label
-                          for="my-dropdown"
-                          data-toggle="dropdown"
-                          class="label3"
-                          style={{ color: `${Color ? Color : textvalue}`}}
-                        >
-                          M
-                        </label>
-                        <h4 style={{ color: `${Color ? Color : textvalue}`}}>$200</h4>
-                        <button style={{ color: `${Color ? Color : textvalue}`}}>Add To Cart</button>
-                      </div>
-                    </div>
-                  </section>
+                  </div>
                 </div>
               </div>
             </Card>
