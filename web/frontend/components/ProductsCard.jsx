@@ -37,7 +37,7 @@ console.log("pro",products)
 
   const rows = products.map((product, index) => [
     <input
-    class="largerCheckbox"
+    className="largerCheckbox"
       type="checkbox"
       onChange={() => handleCheckboxChange(index)}
       checked={selectedItems.includes(index)}

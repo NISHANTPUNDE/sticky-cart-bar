@@ -7,6 +7,7 @@
 }
 {% endschema %}
 
+<<<<<<< HEAD
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -322,3 +323,158 @@ document.addEventListener('click', function() {
 
  
 </script>
+=======
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+>
+
+<section class="add-cart-section" id="add-cart-id">
+  <div class="container-fluid">
+    <div class="box">
+      <img width="50px" height="50px" src="{{ product.featured_image.src | img_url: 'master' }}" class="earring-img">
+      <h3>{{ product.title }}</h3>
+      <div class="number">
+        <input type="text" id="number-input" value="3" maxlength="2">
+        <button id="prev-btn-number" class="up-btn3">▼</button>
+        <button id="next-btn-number" class="down-btn3">▲</button>
+      </div>
+      <div class="metal">
+        <input type="text" id="metal-input" maxlength="1" value="Copper1">
+        <button id="metal-prev-btn" class="up-btn2">▼</button>
+        <button id="metal-next-btn" class="down-btn2">▲</button>
+      </div>
+      <div class="alpha">
+        <input type="text" id="size-input" pattern="[A-Za-z]" maxlength="1" value="A">
+        <button id="prev-btn" class="up-btn">▼</button>
+        <button class="down-btn" id="next-btn">▲</button>
+      </div>
+      <h4 id="price"> "{{ product.price | money_with_currency }}"</h4>
+      <button class="button">Add To Cart</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const metalsSet = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | first }}',{% endfor %}]);
+    const metals = Array.from(metalsSet);
+ 
+    console.log("metal",metals)
+    console.log("metal",metals.indexOf('{{ product.selected_variant.title }}'))
+  let currentIndex = metals.indexOf('{{ product.selected_variant.title }}');
+
+  const metalInput = document.getElementById('metal-input');
+  const metalPrevBtn = document.getElementById('metal-prev-btn');
+  const metalNextBtn = document.getElementById('metal-next-btn');
+
+  metalPrevBtn.addEventListener('click', () => {
+    decrementMetal();
+  });
+
+  metalNextBtn.addEventListener('click', () => {
+    incrementMetal();
+  });
+
+  function decrementMetal() {
+    currentIndex = (currentIndex - 1 + metals.length) % metals.length;
+    metalInput.value = metals[currentIndex];
+  }
+
+  function incrementMetal() {
+    currentIndex = (currentIndex + 1) % metals.length;
+    metalInput.value = metals[currentIndex];
+  }
+</script>
+
+<script>
+    const sizeset = new Set([{% for variant in product.variants %}'{{ variant.title | split: ' / ' | last }}',{% endfor %}]);
+    const size = Array.from(sizeset);
+    console.log("size",size)
+    console.log("size",size.indexOf('{{ product.selected_variant.title }}'))
+    let currentIndexofsize = size.indexOf('{{ product.selected_variant.title }}');
+
+  const sizeInput = document.getElementById('size-input');
+  const sizePrevBtn = document.getElementById('prev-btn');
+  const sizeNextBtn = document.getElementById('next-btn');
+
+  sizePrevBtn.addEventListener('click', () => {
+    decrementsize();
+  });
+
+  sizeNextBtn.addEventListener('click', () => {
+    incrementsize();
+  });
+
+  function decrementsize() {
+    currentIndex = (currentIndexofsize - 1);
+    sizeInput.value = size[currentIndexofsize];
+  }
+
+  function incrementsize() {
+    currentIndexofsize = (currentIndexofsize + 1) % size.length;
+    sizeInput.value = size[currentIndexofsize];
+  }
+</script>
+
+<script>
+  document.getElementById('number-input').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+
+  function updateLabelsAndPrice(selectedNumber) {
+    var price = selectedNumber * 100;
+    document.getElementById('price').textContent = '$' + price;
+  }
+
+  function updateNumberInputValue(selectedNumber) {
+    document.getElementById('number-input').value = selectedNumber;
+    updateLabelsAndPrice(selectedNumber);
+  }
+
+  document.getElementById('prev-btn-number').addEventListener('click', function () {
+    var selectedNumber = parseInt(document.getElementById('number-input').value);
+    if (selectedNumber > 1) {
+      updateNumberInputValue(selectedNumber - 1);
+    }
+  });
+
+  document.getElementById('next-btn-number').addEventListener('click', function () {
+    var selectedNumber = parseInt(document.getElementById('number-input').value);
+    updateNumberInputValue(selectedNumber + 1);
+  });
+
+  updateLabelsAndPrice(3);
+</script>
+
+{% comment %} <script>
+  function updateInputValue(currentIndex) {
+    var alphabetInput = document.getElementById('alphabet-input');
+    var alphabet = String.fromCharCode(65 + (currentIndex % 26));
+    alphabetInput.value = alphabet;
+  }
+
+  document.getElementById('prev-btn').addEventListener('click', function () {
+    var currentIndex =
+      (parseInt(document.getElementById('alphabet-input').value.toUpperCase().charCodeAt(0)) - 65 - 1 + 26) % 26;
+    updateInputValue(currentIndex);
+  });
+
+  document.getElementById('next-btn').addEventListener('click', function () {
+    var currentIndex =
+      (parseInt(document.getElementById('alphabet-input').value.toUpperCase().charCodeAt(0)) - 65 + 1) % 26;
+    updateInputValue(currentIndex);
+  });
+</script> {% endcomment %}
+
+<script
+  defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+  integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af

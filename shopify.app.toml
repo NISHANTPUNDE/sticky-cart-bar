@@ -1,9 +1,16 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
+<<<<<<< HEAD
 client_id = "d8508b1cc390b4f6c1d3f9c6bf6f0d12"
 name = "Sticky_Cart_Bar"
 handle = "sticky_cart_bar-1"
 application_url = "https://suspended-suzuki-manhattan-random.trycloudflare.com"
+=======
+client_id = "a08ea8f60487001c5975af2c84073f3c"
+name = "Sticky-Cart-Bar"
+handle = "sticky-cart-bar"
+application_url = "https://hoped-north-toolkit-maritime.trycloudflare.com"
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 embedded = true
 
 [build]
@@ -16,9 +23,15 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
+<<<<<<< HEAD
   "https://suspended-suzuki-manhattan-random.trycloudflare.com/auth/callback",
   "https://suspended-suzuki-manhattan-random.trycloudflare.com/auth/shopify/callback",
   "https://suspended-suzuki-manhattan-random.trycloudflare.com/api/auth/callback"
+=======
+  "https://hoped-north-toolkit-maritime.trycloudflare.com/auth/callback",
+  "https://hoped-north-toolkit-maritime.trycloudflare.com/auth/shopify/callback",
+  "https://hoped-north-toolkit-maritime.trycloudflare.com/api/auth/callback"
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 ]
 
 [webhooks]

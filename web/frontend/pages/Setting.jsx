@@ -22,8 +22,13 @@ export default function Setting() {
     product_name: "",
     quantity: "",
     price: "",
+<<<<<<< HEAD
     variant1: "",
     variant2:"",
+=======
+    type:"",
+    size:"",
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
     popup_bar: "",
     cart_btn: "",
   });
@@ -40,12 +45,14 @@ export default function Setting() {
   const submitSetting = () => {
     axios
       .post(
-        "https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/setSetting",
+        "http://localhost:4003/Product_Notify/setSetting",
         {
           logo: settingdata.logo,
           product_name: settingdata.product_name,
           quantity: settingdata.quantity,
           price: settingdata.price,
+          type: settingdata.type,
+          size: settingdata.size,
           popup_bar: settingdata.popup_bar,
           cart_button: settingdata.cart_btn,
           variant1: settingdata.variant1,
@@ -54,7 +61,7 @@ export default function Setting() {
         }
       )
       .then((res) => {
-        alert("setting save successfully");
+        alert("setting save successfully",res);
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +73,7 @@ export default function Setting() {
     console.log(shopid);
     axios
       .get(
-        `https://www.prodnotifyapi.skyvisionshopify.in/productnotifypurchasebar/getSetting/${shopid}`
+        `http://localhost:4003/Product_Notify/getSetting/${shopid}`
       )
       .then((res) =>
         setSettingData({
@@ -74,6 +81,8 @@ export default function Setting() {
           product_name: res.data.data[0].product_name,
           quantity: res.data.data[0].quantity,
           price: res.data.data[0].price,
+          type: res.data.data[0].type,
+          size: res.data.data[0].size,
           popup_bar: res.data.data[0].popup_bar,
           cart_btn: res.data.data[0].cart_button,
           variant1: res.data.data[0].variant1,
@@ -113,6 +122,7 @@ export default function Setting() {
                     checked={settingdata.logo}
                     onChange={handleChange}
                   />
+<<<<<<< HEAD
 
                 </div>
 
@@ -130,6 +140,23 @@ export default function Setting() {
                 </div>
               </div>
 
+=======
+                </div>
+
+                <div>
+                  <label htmlFor="product_name">Show Product Name</label>
+                  <input
+                    type="checkbox"
+                    name="product_name"
+                    id="product_name"
+                    value={settingdata.product_name}
+                    checked={settingdata.product_name}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
               <div className="col2">
                 <div>
                   <label htmlFor="quantity">Show Quantity</label>
@@ -141,6 +168,7 @@ export default function Setting() {
                     checked={settingdata.quantity}
                     onChange={handleChange}
                   />
+<<<<<<< HEAD
 
                 </div>
 
@@ -181,8 +209,24 @@ export default function Setting() {
                   onChange={handleChange}
                 />
               </div>
+=======
+                </div>
+
+                <div>
+                  <label htmlFor="price">Show Price</label>
+                  <input
+                    type="checkbox"
+                    name="price"
+                    id="price"
+                    value={settingdata.price}
+                    checked={settingdata.price}
+                    onChange={handleChange}
+                  />
+                </div>
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
               </div>
               <div className="col3">
+<<<<<<< HEAD
                 <div className="popup_bar">
                   <label htmlFor="popup_bar">Show Popup Bar</label>
                   <input
@@ -194,6 +238,44 @@ export default function Setting() {
                     onChange={handleChange}
                   />
 
+=======
+                <div className="Type">
+                  <label htmlFor="Type">Type</label>
+                  <input
+                    type="checkbox"
+                    name="type"
+                    id="Type"
+                    value={settingdata.type}
+                    checked={settingdata.type}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="Size">Size</label>
+                  <input
+                    type="checkbox"
+                    name="size"
+                    id="Size"
+                    value={settingdata.size}
+                    checked={settingdata.size}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="col4">
+                <div className="popup_bar">
+                  <label htmlFor="popup_bar">Show Popup Bar</label>
+                  <input
+                    type="checkbox"
+                    name="popup_bar"
+                    id="popup_bar"
+                    value={settingdata.popup_bar}
+                    checked={settingdata.popup_bar}
+                    onChange={handleChange}
+                  />
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
                 </div>
 
                 <div>
@@ -233,6 +315,7 @@ export default function Setting() {
                 </div>
               </div>
               <div className="footer">
+<<<<<<< HEAD
                 {settingdata.popup_bar && (
                   <div id="bar" style={{ backgroundColor: "#2E2E2E" }}>
 
@@ -315,9 +398,61 @@ export default function Setting() {
                       ) : (
                         ""
                       )}
+=======
+              {settingdata.popup_bar && (
+                <section class="add-cart-section" id="add-cart-id">
+                  <div class="container-fluid ">
+                    <div class="box">
+                    {settingdata.logo ? (
+                      <img
+                        src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
+                        class="earring-img"
+                      />
+                    ) : ("") } 
+                    {settingdata.product_name ? (
+                      <h3>
+                        Martini Stud Earrings 1.65 <br />
+                        CT. TW.
+                      </h3>
+                    ) : ("") }
+                     {settingdata.quantity ? (
+                      <label
+                        for="my-dropdown"
+                        data-toggle="dropdown"
+                        class="label1"
+                      >
+                        3
+                      </label>
+                     ) : ("") }
+                     { settingdata.type ? (
+                      <label
+                        for="my-dropdown"
+                        data-toggle="dropdown"
+                        class="label2"
+                      >
+                        Silver
+                      </label>
+                     ) : ("") }
+                     { settingdata.size ? (
+                      <label
+                        for="my-dropdown"
+                        data-toggle="dropdown"
+                        class="label3"
+                      >
+                        M
+                      </label>
+                     ) : "" }
+                      {settingdata.price ? (
+                      <h4>$200</h4> 
+                      ) : ("") }
+                      { settingdata.cart_btn ? (
+                      <button>Add To Cart</button>
+                      ) : ("") }
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
                     </div>
                   </div>
-                )}
+                </section>
+              )}
               </div>
             </div>
           </Card>

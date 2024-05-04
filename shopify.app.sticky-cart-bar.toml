@@ -1,14 +1,26 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
+<<<<<<< HEAD
 client_id = "71ad53ed84e45184e99595d517158444"
 name = "Sticky-Cart-Bar"
 handle = "sticky-cart-bar-1"
 application_url = "https://started-marketplace-fda-arab.trycloudflare.com"
+=======
+client_id = "c3d32ff00dcf1d56bdeb9bbec70b2111"
+name = "Sticky_cart_bar"
+handle = "sticky_cart_bar"
+application_url = "https://mf-cursor-bosnia-gossip.trycloudflare.com"
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
+<<<<<<< HEAD
 dev_store_url = "themedemo201.myshopify.com"
+=======
+dev_store_url = "storeapp-dev.myshopify.com"
+include_config_on_deploy = true
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -16,9 +28,15 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
+<<<<<<< HEAD
   "https://started-marketplace-fda-arab.trycloudflare.com/auth/callback",
   "https://started-marketplace-fda-arab.trycloudflare.com/auth/shopify/callback",
   "https://started-marketplace-fda-arab.trycloudflare.com/api/auth/callback"
+=======
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/auth/callback",
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/auth/shopify/callback",
+  "https://mf-cursor-bosnia-gossip.trycloudflare.com/api/auth/callback"
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 ]
 
 [webhooks]

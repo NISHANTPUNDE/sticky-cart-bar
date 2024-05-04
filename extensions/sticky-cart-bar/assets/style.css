@@ -639,6 +639,7 @@
     z-index: 1000;
     max-height: 20%;
 }
+<<<<<<< HEAD
 
 .cartbtn {
     background-color: black;
@@ -660,31 +661,59 @@ h2{
     text-transform: capitalize;
     font-size: 16px;
     font-family: Helvetica, sans-serif;
+=======
+* {
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Robota', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.scrollToTopBtn {
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* / ----------- Main CSS Start ------------ / */
+
+.add-cart-section {
     width: 100%;
+    height: auto;
+    padding: 2%;
+}
+
+.add-cart-section .box {
+    background: #334fb4;
+    padding: 5px 25px;
     display: flex;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    z-index: 100;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.5s ease;
 }
 
-.showBtn {
-    opacity: 1;
-    transform: translateY(0);
+.earring-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    /* / margin-top: 3px; / */
 }
 
-.lora-notificationbar{
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
+.add-cart-section h3 {
+    color: #fff;
+    padding: 20px;
     font-weight: 400;
+<<<<<<< HEAD
     font-style: normal;
   }
   .notificationtext h2{
@@ -693,25 +722,172 @@ h2{
     font-weight: 400;
     font-style: normal;
     color: white;
+=======
+    margin-right: 20%;
+}
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
 
-  }
+.add-cart-section .button {
+    background: #000;
+    border-radius: 10px;
+    color: #fff;
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 8px;
+}
 
+.add-cart-section h4 {
+    color: #ff7911;
+    width: 100px;
+    height: 48px;
+    background: #fff;
+    font-size: 25px;
+    font-style: italic;
+    padding: 9px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    margin-right: 50px;
+}
 
-  .numberstyle{
-    border: none;
-    width: 101px;
-    margin: 8px;
+/* input {
+    height: 47px;
+    margin-top: 9px;
+    margin-right: 50px;
+    outline-color: #e38000;
+    outline-width: 3px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 15px;
+} */
+
+.qty {
     text-align: center;
-    text-align: -webkit-center;
-    border-radius: 25px;
-    background-color: chocolate;
-    font-size: 16px;
 }
-.proquantity{
-    display: flex;
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
 }
-.proprice{
+
+.quantity {
+    width: 80px;
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.quantity input {
+    text-align: right;
+    height: 50px;
+}
+
+@media (min-width:1023px) and (max-width:1024px) {
+    .add-cart-section h3{
+        margin-right: 0px;
+    }
+}
+
+/* / new css for dropdown / */
+#number-input{
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    background: #334fb4;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
+}
+
+#number-input{
+    width: 65px;
+    padding: 10px 5px 10px 10px;
+    margin-right: 50px;
+}
+
+#number-input::before {
+    content: "\f0d8";
+    font-family: FontAwesome;
+    position: absolute;
+}
+
+#number-input::before{
+    left: 46px;
+    top: 7px;
+}
+
+#number-input::after{
+    content: "\f0d7";
+    font-family: FontAwesome;
+    position: absolute;
+}
+
+#number-input::after{
+    top: 20px;
+    left: 46px;
+}
+
+#metal-dropdown-content {
+    display: none;
+}
+
+#metal-dropdown{
+    width: 110px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
+    background: #334fb4;
+    padding: 13px 0px;
+    margin-right: 15px;
+} 
+
+#metal-value{
+    background: white;
+    color: black;
+}
+
+.up-btn{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -2em;
+    right: -3.4em 
+    /* / margin-left: -25px; / */
+}
+
+.down-btn{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -4em;
+    right: -2em;
+    /* / margin-left: -25px; / */
+}
+
+#alphabet-input{
+    height: 50px;
+    width: 65px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    background: #334fb4;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
     display: flex;
+<<<<<<< HEAD
     margin-top: 30px 0px;
 <<<<<<< HEAD
 } */
@@ -1150,3 +1326,88 @@ button.rg-sticky-cart-bar-buy-now {
     display: none;
 >>>>>>> 79bbf03cf3d93f60efaa7b5dbb4795aff2438a2b
 }
+=======
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-right: 50px;
+}
+
+#metal-input{
+    height: 50px;
+    width: 120px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    background: #334fb4;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 20px 10px;
+    margin-right: 50px;
+}
+
+#size-input{
+    height: 50px;
+    width: 120px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    background: #334fb4;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 20px 10px;
+    margin-right: 50px;
+}
+
+.up-btn2{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -2.2em;
+    right: -7em;
+}
+
+.down-btn2{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -4em;
+    right: -5.6em;
+    
+}
+
+.up-btn3{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -2.2em;
+    right: -3em 
+    
+}
+
+.down-btn3{
+    border: none;
+    background: none;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fff;
+    top: -4em;
+    right: -1.5em 
+    
+}
+
+>>>>>>> f79bf3e24eb7a8c1a6bede0b753ef3095b0815af
