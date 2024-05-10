@@ -23,6 +23,7 @@
     "@shopify/app-bridge-react": "^3.7.7",
     "@shopify/i18next-shopify": "^0.2.9",
     "@shopify/polaris": "^10.49.1",
+    "@stripe/stripe-js": "^3.3.0",
     "@vitejs/plugin-react": "1.2.0",
     "axios": "^1.6.8",
     "i18next": "^23.1.0",
@@ -33,8 +34,7 @@
     "react-icons": "^5.0.1",
     "react-query": "^3.34.19",
     "react-router-dom": "^6.22.3",
-    "vite": "^4.3.9",
-    "@stripe/stripe-js": "^3.3.0"
+    "vite": "^4.3.9"
   },
   "devDependencies": {
     "@shopify/stylelint-polaris": "^12.0.0",

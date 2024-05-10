@@ -3,7 +3,7 @@
 client_id = "df80c5f38fd99dab5e78fa296c50a38d"
 name = "subscription-app"
 handle = "subscription-app-142"
-application_url = "https://hits-mongolia-avi-producers.trycloudflare.com"
+application_url = "https://dude-paragraphs-row-hygiene.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://hits-mongolia-avi-producers.trycloudflare.com/auth/callback",
-  "https://hits-mongolia-avi-producers.trycloudflare.com/auth/shopify/callback",
-  "https://hits-mongolia-avi-producers.trycloudflare.com/api/auth/callback"
+  "https://dude-paragraphs-row-hygiene.trycloudflare.com/auth/callback",
+  "https://dude-paragraphs-row-hygiene.trycloudflare.com/auth/shopify/callback",
+  "https://dude-paragraphs-row-hygiene.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

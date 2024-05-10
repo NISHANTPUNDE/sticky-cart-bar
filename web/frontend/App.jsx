@@ -15,7 +15,6 @@ export default function App() {
   // See documentation for <Routes /> for more info
   const pages = import.meta.globEager("./pages/**/!(*.test.[jt]sx)*.([jt]sx)");
   const { t } = useTranslation();
-
   return (
     <PolarisProvider>
       <BrowserRouter>
@@ -35,7 +34,7 @@ export default function App() {
             />
             <div className="section">
                 <div className="navbar">
-                  <Navbar />
+                 <Navbar />
                 </div>
               </div>
             <div style={{ width: "80vw", marginLeft: "100px"}}>
